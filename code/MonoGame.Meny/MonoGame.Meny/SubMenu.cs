@@ -13,5 +13,6 @@ namespace MonoGame.Meny
 
         public Action ClickAction { get; set; }
         public Rectangle HitBox { get; set; }
+        public object Choices { get; internal set; }
     }
 }

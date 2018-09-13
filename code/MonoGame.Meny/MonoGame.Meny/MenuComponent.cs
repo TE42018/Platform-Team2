@@ -18,12 +18,7 @@ namespace MonoGame.Meny
         Color _backgroundColor;
         MouseState _previousMouseState;
         Texture2D _backgroundImage;
-
-        private SubMenu _mainMenu;
-        private SubMenu _activeMenu;
-        private SubMenu _optionsMenu;
         private Texture2D _volumeGraph;
-        private int volume;
 
         private List<SubMenu> _optionsChoices;
         
@@ -40,9 +35,8 @@ namespace MonoGame.Meny
             _choices.Add(new MenuChoice() { Text = "OPTIONS", ClickAction = MenuOptionsClicked });
             _choices.Add(new MenuChoice() { Text = "QUIT", ClickAction = MenuQuitClicked });
 
-            base.Initialize();
             _optionsChoices = new List<SubMenu>();
-            _optionsChoices.Add(new SubMenu() { Text = "SFX SOUND", ClickAction = SfxSoundClicked, LeftAction = SfxVolumeOptionLeft, RightAction = SfxVolumeOptionRight });
+            _optionsChoices.Add(new SubMenu() { Text = "SFX SOUND", ClickAction = SfxSoundClicked });
             _optionsChoices.Add(new SubMenu() { Text = "MUSIC", ClickAction = MusicClicked });
             _optionsChoices.Add(new SubMenu() { Text = "BACK", ClickAction = BackOptionClicked });
 
@@ -130,19 +124,11 @@ namespace MonoGame.Meny
             }
             if (KeyboardComponent.KeyPressed(Keys.Left))
             {
-                var selectedChoice = _activeMenu.Choices.First(c => c.Selected);
-                if (selectedChoice.Activated)
-                {
-                    selectedChoice.LeftAction.Invoke();
-                }
+
             }
             if (KeyboardComponent.KeyPressed(Keys.Right))
             {
-                var selectedChoice = _activeMenu.Choices.First(c => c.Selected);
-                if (selectedChoice.Activated)
-                {
-                    selectedChoice.RightAction.Invoke();
-                }
+
             }
 
             var mouseState = Mouse.GetState();
@@ -207,16 +193,10 @@ namespace MonoGame.Meny
             //bakgrundsbild
             _spriteBatch.Draw(_backgroundImage, GraphicsDevice.Viewport.Bounds, Color.White);
 
-            _spriteBatch.Draw(choice.Image, new Vector2(0, 0), new Rectangle(0, 0, 512 / 5 * volume, _volumeGraph.Height), Color.White);
+            _spriteBatch.Draw(_volumeGraph, GraphicsDevice.Viewport.Bounds, Color.White);
 
             // ... Komplettering #5
             foreach (var choice in _choices)
-            {
-                _spriteBatch.DrawString(choice.Selected ? _selectedFont : _normalFont,
-                    choice.Text, new Vector2(choice.X, choice.Y), Color.White);
-            }
-            // ... Komplettering #5
-            foreach (var choice in _optionsChoices)
             {
                 _spriteBatch.DrawString(choice.Selected ? _selectedFont : _normalFont,
                     choice.Text, new Vector2(choice.X, choice.Y), Color.White);
