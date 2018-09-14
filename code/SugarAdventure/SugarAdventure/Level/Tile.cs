@@ -17,7 +17,6 @@ namespace SugarAdventure
             { 101, "Platform" },
             { 201, "Slope_up" },
             { 202, "Slope_down" },
-            { 301, "Coin_bronze" },
         };
 
         private Rectangle hitBox;
@@ -49,7 +48,15 @@ namespace SugarAdventure
         {
             gid = _gid;
             pos = _pos;
-            hitBox = new Rectangle(_pos.ToPoint(), new Point(_tileSize, _tileSize));
+
+            if (specialTiles.ContainsKey(gid))
+            {
+               
+            }
+            else
+            {
+                hitBox = new Rectangle(_pos.ToPoint(), new Point(_tileSize, _tileSize));
+            }
         }
     }
 }

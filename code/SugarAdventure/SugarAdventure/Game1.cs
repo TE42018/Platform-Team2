@@ -106,10 +106,9 @@ namespace SugarAdventure
 
             float mScaleX = graphics.PreferredBackBufferWidth / cam.ViewportWidth;
             float mScaleY = graphics.PreferredBackBufferHeight / cam.ViewportHeight;
-            float mOffestX = -cam.Pos.X * Camera.ZoomFactor;// * Camera.ZoomFactor;
-            float mOffestY = -cam.Pos.Y * Camera.ZoomFactor;// * Camera.ZoomFactor;
-
-            Console.WriteLine(graphics.PreferredBackBufferWidth / cam.ViewportWidth);
+            float mOffestX = -cam.Pos.X * Camera.ZoomFactor;
+            float mOffestY = -cam.Pos.Y * Camera.ZoomFactor;
+            
             Matrix matrix = new Matrix(
                 mScaleX, 0, 0, 0,
                 0, mScaleY, 0, 0,
@@ -118,12 +117,9 @@ namespace SugarAdventure
                 );
             
             spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, matrix);
-            //levelManager.Levels[0].Draw(1.0f, spriteBatch);
+            
             level.Draw(spriteBatch);
             player.Draw(spriteBatch);
-            //levelManager.Levels[0].Layers[0].Draw(pos, zoomLevel, spriteBatch);
-            //levelManager.Levels[0].Layers[1].Draw(pos, zoomLevel, spriteBatch);
-            //levelManager.Levels[1].Layers[2].Draw(pos, zoomLevel, spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);
