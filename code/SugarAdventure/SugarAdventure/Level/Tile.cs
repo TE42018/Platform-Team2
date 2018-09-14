@@ -14,17 +14,32 @@ namespace SugarAdventure
 
         Dictionary<int, string> specialTiles = new Dictionary<int, string>
         {
-            { 101, "Platform" },
-            { 201, "Slope_up" },
-            { 202, "Slope_down" },
+            { 190, "Platform" },
+            { 109, "Platform" },
+            { 110, "Platform" },
+            { 111, "Platform" },
+            { 112, "Platform" },
+            { 123, "Platform" },
+            { 124, "Platform" },
+            { 125, "Platform" },
+            { 126, "Platform" },
+            { 108, "Slope_up" },
         };
 
-        private Rectangle hitBox;
-        public Rectangle HitBox
+        private Rectangle hitbox;
+        public Rectangle Hitbox
         {
             get
             {
-                return hitBox;
+                return hitbox;
+            }
+        }
+        private string type;
+        public string Type
+        {
+            get
+            {
+                return type;
             }
         }
         private Vector2 pos;
@@ -51,11 +66,34 @@ namespace SugarAdventure
 
             if (specialTiles.ContainsKey(gid))
             {
-               
+                string tileType;
+                specialTiles.TryGetValue(gid, out tileType);
+
+                switch (tileType.ToLower())
+                {
+                    case "platform":
+                        type = "block";
+                        hitbox = new Rectangle(_pos.ToPoint(), new Point(_tileSize, _tileSize/2));
+                        break;
+                    case "slope_up":
+                        type = "slope_up";
+                        hitbox = new Rectangle(_pos.ToPoint(), new Point(_tileSize, _tileSize));
+                        break;
+                }
             }
             else
             {
-                hitBox = new Rectangle(_pos.ToPoint(), new Point(_tileSize, _tileSize));
+                if (gid != 0)
+                {
+                    type = "block";
+                    hitbox = new Rectangle(_pos.ToPoint(), new Point(_tileSize, _tileSize));
+                }
+                else
+                {
+                    type = "none";
+                    hitbox = new Rectangle(Point.Zero, Point.Zero);
+                }
+                
             }
         }
     }

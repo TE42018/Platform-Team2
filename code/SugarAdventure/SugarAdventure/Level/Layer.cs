@@ -13,9 +13,10 @@ namespace SugarAdventure
     class Layer
     {
         Chunk[,] chunks;
-        List<IEntity> entities; 
+        Tile[,] Tiles;
+        List<IEntity> entities;
         Texture2D[] layerImageBuffer;
-        int[] tileDrawingBlacklist = { 406, 407, 199, 401, 402, 302 };
+        int[] tileDrawingBlacklist = { };//{ 406, 407, 199, 401, 402, 302 };
         int[] tileBoxBlacklist = { 406, 407, 199, 401, 402, 302 };
         int[] tintedTiles = { 145 };
 
@@ -36,8 +37,8 @@ namespace SugarAdventure
             }
         }
         private static int layerWidthInTiles, layerHeightInTiles, layerWidthInChunks, layerHeightInChunks;
-        private static int tileWidth, tileHeight;                 
-        
+        private static int tileWidth, tileHeight;
+
         private TmxLayer layerData;
         private TmxTileset[] tilesets;
 
@@ -55,14 +56,15 @@ namespace SugarAdventure
             layerWidthInTiles = layerWidth / tileWidth;
             layerHeightInTiles = layerHeight / tileHeight;
 
-            layerWidthInChunks = layerWidth / Chunk.width / tileWidth;
-            layerHeightInChunks = layerHeight / Chunk.height / tileHeight;
+            Tiles = new Tile[layerWidthInTiles, layerHeightInTiles];
+            //layerWidthInChunks = layerWidth / Chunk.width / tileWidth;
+            //layerHeightInChunks = layerHeight / Chunk.height / tileHeight;
 
             layerImageBuffer = BuildLayerImages(layerData.Tiles.ToArray(), out layerImageBuffer);
 
-            if(layerData.Name == "Ground")
-            { 
-                PopulateChunks(layerData.Tiles.ToArray());
+            if (layerData.Name == "Ground")
+            {
+                PopulateTiles(layerData.Tiles.ToArray());
             }
         }
 
@@ -203,88 +205,121 @@ namespace SugarAdventure
             return tilesetResult;
         }
 
-        private void PopulateChunks(TmxLayerTile[] _tiles)
+        private void PopulateTiles(TmxLayerTile[] _tiles)
         {
-            chunks = new Chunk[layerWidthInChunks, layerHeightInChunks];
-
-            for (int x = 0; x < chunks.GetLength(0); x++)
-            {
-                for (int y = 0; y < chunks.GetLength(1); y++)
-                {
-                    chunks[x, y] = new Chunk(new Vector2(x * Chunk.width * tileWidth, y * Chunk.height * tileHeight), tileWidth);
-                }
-            }
-            
             for (int i = 0; i < _tiles.Length; i++)
             {
                 TmxLayerTile tile = _tiles[i];
 
-                if (tile.Gid == 0)
-                    continue;
-
-                Vector2 chunkIndex;
-                chunkIndex.X = (int)(tile.X / (float)layerWidthInTiles * layerWidthInChunks);
-                chunkIndex.Y = (int)(tile.Y / (float)layerHeightInTiles * layerHeightInChunks);
-
                 Vector2 tilePos;
                 tilePos.X = tile.X * tileWidth;
                 tilePos.Y = tile.Y * tileHeight;
-                //Console.WriteLine(tilePos);
 
-                chunks[(int)chunkIndex.X, (int)chunkIndex.Y].AddTile(tilePos, tileWidth, tile.Gid);
+                Tiles[tile.X, tile.Y] = new Tile(tilePos, tileWidth, tile.Gid);
             }
-            //Console.WriteLine(chunks[2, 0]);
-            //Console.WriteLine(chunks.GetLength(0) + ", " + chunks.GetLength(1));
         }
+        //private void PopulateChunks(TmxLayerTile[] _tiles)
+        //{
+        //    chunks = new Chunk[layerWidthInChunks, layerHeightInChunks];
 
-        public Tile[] GetAllTiles()
+        //    for (int x = 0; x < chunks.GetLength(0); x++)
+        //    {
+        //        for (int y = 0; y < chunks.GetLength(1); y++)
+        //        {
+        //            chunks[x, y] = new Chunk(new Vector2(x * Chunk.width * tileWidth, y * Chunk.height * tileHeight), tileWidth);
+        //        }
+        //    }
+
+        //    for (int i = 0; i < _tiles.Length; i++)
+        //    {
+        //        TmxLayerTile tile = _tiles[i];
+
+        //        if (tile.Gid == 0)
+        //            continue;
+
+        //        Vector2 chunkIndex;
+        //        chunkIndex.X = (int)(tile.X / (float)layerWidthInTiles * layerWidthInChunks);
+        //        chunkIndex.Y = (int)(tile.Y / (float)layerHeightInTiles * layerHeightInChunks);
+
+        //        Vector2 tilePos;
+        //        tilePos.X = tile.X * tileWidth;
+        //        tilePos.Y = tile.Y * tileHeight;
+        //        //Console.WriteLine(tilePos);
+
+        //        chunks[(int)chunkIndex.X, (int)chunkIndex.Y].AddTile(tilePos, tileWidth, tile.Gid);
+        //    }
+        //    //Console.WriteLine(chunks[2, 0]);
+        //    //Console.WriteLine(chunks.GetLength(0) + ", " + chunks.GetLength(1));
+        //}
+
+        public Tile[,] GetTiles()
         {
-            if (chunks.Length == 0)
-                return null;
-
-            int tileArraySize = 0;
-            for (int i = 0; i < chunks.Length; i++)
-            {
-                Vector2 chunkIndex;
-                chunkIndex.X = i % layerWidthInChunks;
-                chunkIndex.Y = i / layerWidthInChunks;
-                Chunk c = chunks[(int)chunkIndex.X, (int)chunkIndex.Y];
-                tileArraySize += c.GetTiles().Length;
-            }
-
-            Tile[] tiles = new Tile[tileArraySize];
-
-            //for (int i = 0; i < tiles.Length; i++)
-            //{
-
-            //}
-
-            int n = 0;
-            for (int i = 0; i < chunks.Length; i++)
-            {
-                Vector2 chunkIndex;
-                chunkIndex.X = i % layerWidthInChunks;
-                chunkIndex.Y = i / layerWidthInChunks;
-
-                Chunk chunk = chunks[(int)chunkIndex.X, (int)chunkIndex.Y];
-
-                Tile[] chunkTiles = chunk.GetTiles();
-
-                for (int j = 0; j < chunkTiles.Length; j++)
-                {
-                    Tile tile = chunkTiles[j];
-                    if(!tileBoxBlacklist.Contains(tile.Gid))
-                        tiles[n] = tile;
-                    n++;
-                }
-            }
-            return tiles;
+            return Tiles;
         }
 
-        public void GetTiles(Chunk _chunk)
+        public int[] GetTileRows(Rectangle _hitbox)
         {
-            Tile[] tile = _chunk.GetTiles();
+            int y1 = _hitbox.Top / tileHeight;
+            int y2 = _hitbox.Bottom / tileHeight;
+
+            int[] rows = new int[y2 - y1 + 1];
+
+            for (int i = 0; i < y2-y1 + 1; i++)
+            {
+                rows[i] = y1 + i;
+            }
+
+            return rows;
         }
+
+        //public Tile[] GetAllTiles()
+        //{
+        //    if (chunks.Length == 0)
+        //        return null;
+
+        //    int tileArraySize = 0;
+        //    for (int i = 0; i < chunks.Length; i++)
+        //    {
+        //        Vector2 chunkIndex;
+        //        chunkIndex.X = i % layerWidthInChunks;
+        //        chunkIndex.Y = i / layerWidthInChunks;
+        //        Chunk c = chunks[(int)chunkIndex.X, (int)chunkIndex.Y];
+        //        tileArraySize += c.GetTiles().Length;
+        //    }
+
+        //    Tile[] tiles = new Tile[tileArraySize];
+
+        //    for (int i = 0; i < tiles.Length; i++)
+        //    {
+
+        //    }
+
+        //    int n = 0;
+        //    for (int i = 0; i < chunks.Length; i++)
+        //    {
+        //        Vector2 chunkIndex;
+        //        chunkIndex.X = i % layerWidthInChunks;
+        //        chunkIndex.Y = i / layerWidthInChunks;
+
+        //        Chunk chunk = chunks[(int)chunkIndex.X, (int)chunkIndex.Y];
+
+        //        Tile[] chunkTiles = chunk.GetTiles();
+
+        //        for (int j = 0; j < chunkTiles.Length; j++)
+        //        {
+        //            Tile tile = chunkTiles[j];
+        //            if (!tileBoxBlacklist.Contains(tile.Gid))
+        //                tiles[n] = tile;
+        //            n++;
+        //        }
+        //    }
+        //    return tiles;
+        //}
+
+        //public void GetTiles(Chunk _chunk)
+        //{
+        //    Tile[] tile = _chunk.GetTiles();
+        //}
 
         public void Draw(SpriteBatch spriteBatch)
         {

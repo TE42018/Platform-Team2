@@ -43,7 +43,7 @@ namespace SugarAdventure
 
             cam.SetBoundingLevel(level);
 
-            player = new Player(new Vector2(0, level.GetLayer("Ground").LayerHeight/2), level);
+            player = new Player(new Vector2(70 * 65, level.GetLayer("Ground").LayerHeight/2), level);
             player.LoadContent();
             player.SetBoundingLevel(level);
         }
@@ -85,7 +85,7 @@ namespace SugarAdventure
                 player.Jump();
             }
             player.Update(gameTime);
-            cam.SetTarget(player.HitBox);
+            cam.SetTarget(player.Hitbox);
             cam.Update(gameTime);
 
             if (inputManager.IsTriggered(Action.Fullscreen))
