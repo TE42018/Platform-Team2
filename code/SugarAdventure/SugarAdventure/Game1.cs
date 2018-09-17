@@ -8,8 +8,22 @@ namespace SugarAdventure
 {
     public class Game1 : Game
     {
+        private static Game1 instance;
+        public static Game1 Instance
+        {
+            get
+            {
+                if(instance == null)
+                {
+                    instance = new Game1();
+                }
+                return instance;
+            }
+        }
+
         public static GraphicsDeviceManager graphics;
         public static ContentManager contentManager;
+        public static EntityManager entityManager;
         InputManager inputManager;
         LevelManager levelManager;
         SpriteBatch spriteBatch;
@@ -23,6 +37,7 @@ namespace SugarAdventure
             graphics = new GraphicsDeviceManager(this);
             inputManager = new InputManager();
             levelManager = new LevelManager();
+            entityManager = new EntityManager();
 
             Content.RootDirectory = "Content";
             contentManager = Content;
@@ -43,7 +58,7 @@ namespace SugarAdventure
 
             cam.SetBoundingLevel(level);
 
-            player = new Player(new Vector2(70 * 65, level.GetLayer("Ground").LayerHeight/2), level);
+            player = new Player(new Vector2(70 * 65, level.GetLayer("Ground").LayerHeight/2 + 70*4), level);
             player.LoadContent();
             player.SetBoundingLevel(level);
         }
@@ -58,7 +73,7 @@ namespace SugarAdventure
             //cam.Update(gameTime);
             inputManager.Update();
             if (inputManager.IsPressed(Action.Exit))
-                Exit();
+                Instance.Exit();
 
             if (inputManager.IsPressed(Action.Up))
             {
@@ -67,6 +82,10 @@ namespace SugarAdventure
             if (inputManager.IsPressed(Action.Down))
             {
                 player.ClimbDown();
+            }
+            if(!inputManager.IsPressed(Action.Up) && !inputManager.IsPressed(Action.Down))
+            {
+                player.StopClimbing();
             }
             if (inputManager.IsPressed(Action.Left))
             {

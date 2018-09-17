@@ -36,7 +36,7 @@ namespace SugarAdventure
                 return layerHeight;
             }
         }
-        private static int layerWidthInTiles, layerHeightInTiles, layerWidthInChunks, layerHeightInChunks;
+        private static int layerWidthInTiles, layerHeightInTiles;//, layerWidthInChunks, layerHeightInChunks;
         private static int tileWidth, tileHeight;
 
         private TmxLayer layerData;

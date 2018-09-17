@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SugarAdventure
 {
-    interface IEntity : IDrawable
+    public interface IEntity
     {
         string Type { get; set; } //Coin, enemy, key
         Vector2 Position { get; set; }

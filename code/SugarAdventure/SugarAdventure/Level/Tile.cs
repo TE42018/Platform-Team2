@@ -10,8 +10,6 @@ namespace SugarAdventure
 {
     class Tile
     {
-        int[] halfTiles = {  };
-
         Dictionary<int, string> specialTiles = new Dictionary<int, string>
         {
             { 190, "Platform" },
@@ -24,6 +22,16 @@ namespace SugarAdventure
             { 125, "Platform" },
             { 126, "Platform" },
             { 108, "Slope_up" },
+            { 107, "Slope_down" },
+            { 302, "Ladder" },
+        };
+
+        Dictionary<int, string> entityTiles = new Dictionary<int, string>
+        {
+            { 199, "Coin_gold" },
+            { 401, "Coin_silver" },
+            { 402, "Coin_bronze" },
+            { 403, "Key_green" },
         };
 
         private Rectangle hitbox;
@@ -78,6 +86,26 @@ namespace SugarAdventure
                     case "slope_up":
                         type = "slope_up";
                         hitbox = new Rectangle(_pos.ToPoint(), new Point(_tileSize, _tileSize));
+                        break;
+                    case "slope_down":
+                        type = "slope_down";
+                        hitbox = new Rectangle(_pos.ToPoint(), new Point(_tileSize, _tileSize));
+                        break;
+                    case "ladder":
+                        type = "ladder";
+                        hitbox = new Rectangle(_pos.ToPoint(), new Point(_tileSize, _tileSize));
+                        break;
+                }
+            }
+            else if (entityTiles.ContainsKey(gid))
+            {
+                string entityType;
+                entityTiles.TryGetValue(gid, out entityType);
+
+                switch (entityType.ToLower())
+                {
+                    case "coin_bronze":
+                        Console.WriteLine("COIN");
                         break;
                 }
             }

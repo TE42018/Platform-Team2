@@ -39,7 +39,7 @@ namespace SugarAdventure
         {
             levelData = GetLevelFile(_levelSource, _levelFolderName, _levelFileName);
             
-            Console.WriteLine(levelData.ImageLayers);
+            //Console.WriteLine(levelData.ImageLayers);
             width = levelData.Width * levelData.TileWidth; 
             height = levelData.Height * levelData.TileHeight; // size in pixels    (Maybe get in layer instead)
             

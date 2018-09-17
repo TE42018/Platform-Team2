@@ -43,13 +43,15 @@
   <ItemGroup>
     <Compile Include="Camera.cs" />
     <Compile Include="Entities\Coin.cs" />
+    <Compile Include="Entities\Key.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Interfaces\IEntity.cs" />
-    <Compile Include="Interfaces\IInteractable.cs" />
+    <Compile Include="Interfaces\IPickupable.cs" />
     <Compile Include="Level\Chunk.cs" />
     <Compile Include="Level\Layer.cs" />
     <Compile Include="Level\Level.cs" />
     <Compile Include="Level\Tile.cs" />
+    <Compile Include="Managers\EntityManager.cs" />
     <Compile Include="Managers\InputManager.cs" />
     <Compile Include="Managers\LevelManager.cs" />
     <Compile Include="obj\x86\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />

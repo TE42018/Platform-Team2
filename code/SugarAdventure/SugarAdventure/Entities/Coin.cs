@@ -17,27 +17,14 @@ namespace SugarAdventure
 
         public int Value { get; set; }
 
-        public int DrawOrder => throw new NotImplementedException();
-
-        public bool Visible => throw new NotImplementedException();
-
-
         public Coin(Vector2 _pos, int _value)
         {
             Type = "coin";
         }
 
-        public event EventHandler<EventArgs> DrawOrderChanged;
-        public event EventHandler<EventArgs> VisibleChanged;
-
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(Texture, Position, Color.White);
-        }
-
-        public void Draw(GameTime gameTime)
-        {
-            throw new NotImplementedException();
-        }
+        } 
     }
 }
