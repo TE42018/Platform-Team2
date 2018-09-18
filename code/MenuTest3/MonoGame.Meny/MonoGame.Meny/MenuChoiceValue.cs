@@ -10,13 +10,27 @@ namespace MonoGame.Meny
         private readonly int _max;
         private readonly string _suffix;
 
-        public int Value { get; set; }
+        private int _value;
+
+        public int Value
+        {
+            get => _value;
+            set
+            {
+                if (value < _min)
+                    _value = _min;
+                else if (value > _max)
+                    _value = _max;
+                else
+                    _value = value;
+            }
+        }
 
         public MenuChoiceValue(int value, int min, int max, string suffix)
         {
-            Value = value;
             _min = min;
             _max = max;
+            Value = value;
             _suffix = suffix;
         }
 

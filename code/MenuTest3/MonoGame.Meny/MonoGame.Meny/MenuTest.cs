@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 namespace MonoGame.Meny
 {
@@ -12,6 +13,7 @@ namespace MonoGame.Meny
 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        private Song music;
 
         public MenuTest()
         {
@@ -42,8 +44,11 @@ namespace MonoGame.Meny
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            music = Content.Load<Song>("test_music");
 
-            // TODO: use this.Content to load your game content here
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Volume = 0.5f;
+            MediaPlayer.Play(music);
         }
 
         /// <summary>

@@ -13,6 +13,26 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin candybackground.jpg
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:candybackground.jpg
+
+#begin menuFontActive.bmp
+/importer:TextureImporter
+/processor:FontTextureProcessor
+/processorParam:FirstCharacter= 
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Color
+/build:menuFontActive.bmp
+
 #begin menuFontNormal.bmp
 /importer:TextureImporter
 /processor:FontTextureProcessor
@@ -28,18 +48,6 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Color
 /build:menuFontSelected.bmp
-
-#begin candybackground.jpg
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:candybackground.jpg
 
 #begin pause.png
 /importer:TextureImporter
@@ -65,6 +73,12 @@
 /processorParam:TextureFormat=Color
 /build:resume.png
 
+#begin test_music.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:test_music.mp3
+
 #begin volumeGraph.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -76,12 +90,4 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:volumeGraph.png
-
-#begin menuFontActive.bmp
-/importer:TextureImporter
-/processor:FontTextureProcessor
-/processorParam:FirstCharacter= 
-/processorParam:PremultiplyAlpha=True
-/processorParam:TextureFormat=Color
-/build:menuFontActive.bmp
 

@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 
 namespace MonoGame.Meny
 {
@@ -39,7 +41,7 @@ namespace MonoGame.Meny
 
             _optionsChoices = new List<MenuChoice>();
             _optionsChoices.Add(new MenuChoiceValue(50) { Text = "SFX SOUND", Selected = true, ClickAction = SfxSoundClicked });
-            _optionsChoices.Add(new MenuChoiceValue(50) { Text = "MUSIC", ClickAction = MusicClicked });
+            _optionsChoices.Add(new MenuChoiceValue(50) { Text = "MUSIC", ClickAction = MusicClicked, LeftAction = MenuMusicDown, RightAction = MenuMusicUp});
             _optionsChoices.Add(new MenuChoice() { Text = "BACK", ClickAction = BackOptionClicked });
 
             _activeChoices = _mainChoices;
@@ -50,6 +52,21 @@ namespace MonoGame.Meny
         // ... Komplettering #1
         #region Menu Clicks
 
+        private void MenuMusicUp()
+        {
+            MenuChoiceValue val = SelectedChoice as MenuChoiceValue;
+            val.Value += 10;
+
+            MediaPlayer.Volume = val.Value / 100.0f;
+        }
+
+        private void MenuMusicDown()
+        {
+            MenuChoiceValue val = SelectedChoice as MenuChoiceValue;
+            val.Value -= 10;
+
+            MediaPlayer.Volume = val.Value / 100.0f;
+        }
         private void MenuStartClicked()
         {
             _backgroundColor = Color.Turquoise;
@@ -126,19 +143,28 @@ namespace MonoGame.Meny
             if (KeyboardComponent.KeyPressed(Keys.Enter))
             {
                 var selectedChoice = _activeChoices.First(c => c.Selected);
-                selectedChoice.ClickAction.Invoke();
+                selectedChoice.ClickAction?.Invoke();
             }
             if (KeyboardComponent.KeyPressed(Keys.Back))
             {
-               
-            }
-            if (KeyboardComponent.KeyPressed(Keys.Left))
-            {
+                if (SelectedChoice.Active)
+                {
+                    SelectedChoice.Active = false;
+                    return;
+                }
 
+                if (_activeChoices == _optionsChoices)
+                {
+                    _activeChoices = _mainChoices;
+                }
             }
-            if (KeyboardComponent.KeyPressed(Keys.Right))
+            if (KeyboardComponent.KeyPressed(Keys.Left) && SelectedChoice.Active)
             {
-
+                SelectedChoice.LeftAction?.Invoke();
+            }
+            if (KeyboardComponent.KeyPressed(Keys.Right) && SelectedChoice.Active)
+            {
+                SelectedChoice.RightAction?.Invoke();
             }
 
             var mouseState = Mouse.GetState();
@@ -168,6 +194,9 @@ namespace MonoGame.Meny
         // ... Komplettering #4
         private void PreviousMenuChoice()
         {
+            if(SelectedChoice.Active)
+                return;
+            
             int selectedIndex = _activeChoices.IndexOf(_activeChoices.First(c => c.Selected));
             _activeChoices[selectedIndex].Selected = false;
             selectedIndex--;
@@ -178,6 +207,9 @@ namespace MonoGame.Meny
 
         private void NextMenuChoice()
         {
+            if (SelectedChoice.Active)
+                return;
+
             int selectedIndex = _activeChoices.IndexOf(_activeChoices.First(c => c.Selected));
             _activeChoices[selectedIndex].Selected = false;
             selectedIndex++;

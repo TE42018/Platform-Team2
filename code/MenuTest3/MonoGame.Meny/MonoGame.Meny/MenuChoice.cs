@@ -14,6 +14,9 @@ namespace MonoGame.Meny
         public bool Active { get; set; }
 
         public Action ClickAction { get; set; }
+        public Action LeftAction { get; set; }
+        public Action RightAction { get; set; }
+
         public Rectangle HitBox { get; set; }
 
         public virtual void Draw(SpriteBatch spriteBatch, SpriteFont font)
