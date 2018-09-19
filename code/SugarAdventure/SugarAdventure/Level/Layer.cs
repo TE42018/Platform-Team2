@@ -10,17 +10,15 @@ using TiledSharp;
 
 namespace SugarAdventure
 {
-    class Layer
+    public class Layer
     {
-        Chunk[,] chunks;
         Tile[,] Tiles;
-        List<IEntity> entities;
         Texture2D[] layerImageBuffer;
-        int[] tileDrawingBlacklist = { };//{ 406, 407, 199, 401, 402, 302 };
+        int[] tileDrawingBlacklist = { 403, 406, 407, 199, 401, 402 };
         int[] tileBoxBlacklist = { 406, 407, 199, 401, 402, 302 };
         int[] tintedTiles = { 145 };
 
-        private static int layerWidth;
+        private int layerWidth;
         public int LayerWidth
         {
             get
@@ -28,7 +26,7 @@ namespace SugarAdventure
                 return layerWidth;
             }
         }
-        private static int layerHeight;
+        private int layerHeight;
         public int LayerHeight
         {
             get
@@ -36,7 +34,7 @@ namespace SugarAdventure
                 return layerHeight;
             }
         }
-        private static int layerWidthInTiles, layerHeightInTiles;//, layerWidthInChunks, layerHeightInChunks;
+        private static int layerWidthInTiles, layerHeightInTiles;
         private static int tileWidth, tileHeight;
 
         private TmxLayer layerData;
@@ -57,15 +55,13 @@ namespace SugarAdventure
             layerHeightInTiles = layerHeight / tileHeight;
 
             Tiles = new Tile[layerWidthInTiles, layerHeightInTiles];
-            //layerWidthInChunks = layerWidth / Chunk.width / tileWidth;
-            //layerHeightInChunks = layerHeight / Chunk.height / tileHeight;
 
-            layerImageBuffer = BuildLayerImages(layerData.Tiles.ToArray(), out layerImageBuffer);
+            //layerImageBuffer = BuildLayerImages(layerData.Tiles.ToArray(), out layerImageBuffer);
 
-            if (layerData.Name == "Ground")
-            {
+            //if (layerData.Name == "Ground")
+            //{
                 PopulateTiles(layerData.Tiles.ToArray());
-            }
+            //}
         }
 
         private Texture2D[] BuildLayerImages(TmxLayerTile[] _layerTiles, out Texture2D[] _layerImageBuffer)
@@ -215,42 +211,17 @@ namespace SugarAdventure
                 tilePos.X = tile.X * tileWidth;
                 tilePos.Y = tile.Y * tileHeight;
 
-                Tiles[tile.X, tile.Y] = new Tile(tilePos, tileWidth, tile.Gid);
+                Texture2D tileTexture = null;
+                TmxTileset tileTileset = FindTileset(tile.Gid);
+                if (tileTileset != null)
+                {
+                    Texture2D tileTilesheet = GetTilesheet(tileTileset, out tileTilesheet);
+                    tileTexture = GetTileTexture(tile.Gid, tileTileset, tileTilesheet, out tileTexture);
+                }
+
+                Tiles[tile.X, tile.Y] = new Tile(tilePos, tileTexture, tileWidth, tile.Gid);
             }
         }
-        //private void PopulateChunks(TmxLayerTile[] _tiles)
-        //{
-        //    chunks = new Chunk[layerWidthInChunks, layerHeightInChunks];
-
-        //    for (int x = 0; x < chunks.GetLength(0); x++)
-        //    {
-        //        for (int y = 0; y < chunks.GetLength(1); y++)
-        //        {
-        //            chunks[x, y] = new Chunk(new Vector2(x * Chunk.width * tileWidth, y * Chunk.height * tileHeight), tileWidth);
-        //        }
-        //    }
-
-        //    for (int i = 0; i < _tiles.Length; i++)
-        //    {
-        //        TmxLayerTile tile = _tiles[i];
-
-        //        if (tile.Gid == 0)
-        //            continue;
-
-        //        Vector2 chunkIndex;
-        //        chunkIndex.X = (int)(tile.X / (float)layerWidthInTiles * layerWidthInChunks);
-        //        chunkIndex.Y = (int)(tile.Y / (float)layerHeightInTiles * layerHeightInChunks);
-
-        //        Vector2 tilePos;
-        //        tilePos.X = tile.X * tileWidth;
-        //        tilePos.Y = tile.Y * tileHeight;
-        //        //Console.WriteLine(tilePos);
-
-        //        chunks[(int)chunkIndex.X, (int)chunkIndex.Y].AddTile(tilePos, tileWidth, tile.Gid);
-        //    }
-        //    //Console.WriteLine(chunks[2, 0]);
-        //    //Console.WriteLine(chunks.GetLength(0) + ", " + chunks.GetLength(1));
-        //}
 
         public Tile[,] GetTiles()
         {
@@ -272,61 +243,28 @@ namespace SugarAdventure
             return rows;
         }
 
-        //public Tile[] GetAllTiles()
-        //{
-        //    if (chunks.Length == 0)
-        //        return null;
-
-        //    int tileArraySize = 0;
-        //    for (int i = 0; i < chunks.Length; i++)
-        //    {
-        //        Vector2 chunkIndex;
-        //        chunkIndex.X = i % layerWidthInChunks;
-        //        chunkIndex.Y = i / layerWidthInChunks;
-        //        Chunk c = chunks[(int)chunkIndex.X, (int)chunkIndex.Y];
-        //        tileArraySize += c.GetTiles().Length;
-        //    }
-
-        //    Tile[] tiles = new Tile[tileArraySize];
-
-        //    for (int i = 0; i < tiles.Length; i++)
-        //    {
-
-        //    }
-
-        //    int n = 0;
-        //    for (int i = 0; i < chunks.Length; i++)
-        //    {
-        //        Vector2 chunkIndex;
-        //        chunkIndex.X = i % layerWidthInChunks;
-        //        chunkIndex.Y = i / layerWidthInChunks;
-
-        //        Chunk chunk = chunks[(int)chunkIndex.X, (int)chunkIndex.Y];
-
-        //        Tile[] chunkTiles = chunk.GetTiles();
-
-        //        for (int j = 0; j < chunkTiles.Length; j++)
-        //        {
-        //            Tile tile = chunkTiles[j];
-        //            if (!tileBoxBlacklist.Contains(tile.Gid))
-        //                tiles[n] = tile;
-        //            n++;
-        //        }
-        //    }
-        //    return tiles;
-        //}
-
-        //public void GetTiles(Chunk _chunk)
-        //{
-        //    Tile[] tile = _chunk.GetTiles();
-        //}
-
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(layerImageBuffer[0], Vector2.Zero, Color.White);
-            spriteBatch.Draw(layerImageBuffer[1], new Vector2(layerImageBuffer[0].Width, 0), Color.White);
-            //Draw entities
+            for (int y = 0; y < Tiles.GetLength(1); y++)
+            {
+                for (int x = 0; x < Tiles.GetLength(0); x++)
+                {
+                    Tile t = Tiles[x, y];
+                    
+                    if (t == null || t.Texture == null)
+                        continue;
 
+                    if (!tileDrawingBlacklist.Contains(t.Gid))
+                    {
+                        if (layerData.Name != "Ground" && tintedTiles.Contains(t.Gid))
+                            t.Draw(spriteBatch, Color.Brown);
+                        else
+                            t.Draw(spriteBatch, Color.White);
+                    }
+                }
+            }
+            //spriteBatch.Draw(layerImageBuffer[0], Vector2.Zero, Color.White);
+            //spriteBatch.Draw(layerImageBuffer[1], new Vector2(layerImageBuffer[0].Width, 0), Color.White);
         }
     }
 }

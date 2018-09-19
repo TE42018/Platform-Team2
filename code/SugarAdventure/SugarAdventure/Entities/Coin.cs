@@ -16,12 +16,36 @@ namespace SugarAdventure
         public Texture2D Texture { get; set; }
 
         public int Value { get; set; }
+        public Point Size { get; set; }
 
-        public Coin(Vector2 _pos, int _value)
+        public Coin(Vector2 _pos, string _type)
         {
-            Type = "coin";
-        }
+            Type = "coin_" + _type;
+            Position = _pos;
+            Size = new Point(47, 47);
 
+            switch (Type.ToLower())
+            {
+                case "coin_bronze":
+                    Value = 1;
+                    Texture = Game1.entityManager.Textures[(int)EntityTexture.Coin_bronze];
+                    break;
+                case "coin_silver":
+                    Value = 3;
+                    Texture = Game1.entityManager.Textures[(int)EntityTexture.Coin_silver];
+                    break;
+                case "coin_gold":
+                    Value = 5;
+                    Texture = Game1.entityManager.Textures[(int)EntityTexture.Coin_gold];
+                    break;
+            }
+
+            int posX = (int)Position.X + (Texture.Width / 2) - (Size.X / 2);
+            int posY = (int)Position.Y + (Texture.Height / 2) - (Size.Y / 2);
+
+            Hitbox = new Rectangle(new Point(posX, posY), Size);
+        }
+        
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(Texture, Position, Color.White);

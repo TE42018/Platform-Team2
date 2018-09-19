@@ -8,31 +8,32 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace SugarAdventure
 {
-    class Key : IEntity, IPickupable
+    public class Lock : IEntity, IInteractable
     {
         public string Type { get; set; }
         public Vector2 Position { get; set; }
         public Texture2D Texture { get; set; }
-        public Rectangle Hitbox { get; set; }
         public Point Size { get; set; }
+        public Rectangle Hitbox { get; set; }
 
-        public Key(Vector2 _pos, string _type)
+        public IPickupable Key { get; set; }
+        public string KeyName { get; set; }
+
+        public Lock(Vector2 _pos, string _type)
         {
             Position = _pos;
-            Type = "key_" + _type;
-            Size = new Point(44, 40);
+            Type = "lock_" + _type;
+            KeyName = "key_" + _type;
+            Key = Game1.entityManager.GetEntity(KeyName);
 
-            switch (Type)
+            switch (Type.ToLower())
             {
-                case "key_green":
-                    Texture = Game1.entityManager.Textures[(int)EntityTexture.Key_green];
+                case "lock_green":
+                    Texture = Game1.entityManager.Textures[(int)EntityTexture.Lock_green];
                     break;
             }
 
-            int posX = (int)Position.X + (Texture.Width / 2) - (Size.X / 2);
-            int posY = (int)Position.Y + (Texture.Height / 2) - (Size.Y / 2);
-
-            Hitbox = new Rectangle(new Point(posX, posY), Size);
+            Hitbox = new Rectangle(Position.ToPoint(), new Point(Texture.Width, Texture.Height));
         }
 
         public void Draw(SpriteBatch spriteBatch)

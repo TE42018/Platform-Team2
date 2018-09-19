@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 
 namespace SugarAdventure
 {
-    class Player
+    public class Player
     {
+        private HashSet<IPickupable> inventory;
         private Level level;
         private Texture2D texture;
-        private Rectangle Bounds;
+        private Vector2 originalPosition;
+        private Rectangle bounds;
         private Rectangle hitbox;
         public Rectangle Hitbox
         {
@@ -29,10 +31,10 @@ namespace SugarAdventure
 
         Tile[,] tilesToCheck;
 
-        bool hasJumped;
+        //bool hasJumped;
         bool canJump = false;
         bool isClimbing;
-        bool isOnGround;
+        //bool isOnGround;
         bool canClimb;
 
 
@@ -41,9 +43,11 @@ namespace SugarAdventure
         public Player(Vector2 _position, Level _level)
         {
             position = _position;
+            originalPosition = position;
             velocity = Vector2.Zero;
             gravity = new Vector2(0, 9.81f*300);
-            hasJumped = true;
+            inventory = new HashSet<IPickupable>();
+            //hasJumped = true;
             level = _level;
             tilesToCheck = level.GetLayer("Ground").GetTiles();
         }
@@ -51,7 +55,7 @@ namespace SugarAdventure
         public void LoadContent()
         {
             texture = Game1.contentManager.Load<Texture2D>(@"Platformer assets (1330 assets)/Extra animations and enemies (165 assets)/Alien sprites/alienPink");
-            hitbox = new Rectangle(position.ToPoint(), new Point(texture.Width, texture.Height + 1));
+            hitbox = new Rectangle(position.ToPoint(), new Point(texture.Width, texture.Height));
         }
 
         public void Update(GameTime gameTime)
@@ -60,10 +64,50 @@ namespace SugarAdventure
             CollideX(gameTime);
             CollideY(gameTime);
 
-            position = Vector2.Clamp(position, Vector2.Zero, new Vector2(Bounds.Width, Bounds.Height));
+            position = Vector2.Clamp(position, Vector2.Zero, new Vector2(bounds.Width, bounds.Height));
 
             if (!isClimbing)
                 velocity += gravity * (float)gameTime.ElapsedGameTime.TotalSeconds;
+        }
+
+        public void Pickup(IPickupable item)
+        {
+            inventory.Add(item);
+        }
+
+        public bool HasItem(IPickupable item)
+        {
+            foreach (IPickupable i in inventory)
+            {
+                if (i == item)
+                {
+
+                    return true;
+                }
+            }
+            return false;
+        }
+        public bool HasItem(string itemName)
+        {
+            foreach (IPickupable i in inventory)
+            {
+                if ((i as IEntity).Type == itemName)
+                {
+
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public void RemoveItem(IPickupable item)
+        {
+            inventory.Remove(item);
+        }
+
+        public void Reset()
+        {
+            position = new Vector2(position.X, position.Y - 420);
         }
 
         private void CollideX(GameTime gameTime)
@@ -159,7 +203,7 @@ namespace SugarAdventure
                     Rectangle tileBox = t.Hitbox;
                     if (hitbox.Intersects(tileBox))
                     {
-                        Console.WriteLine(tileType);
+                        //Console.WriteLine(tileType);
                         if (tileType == "block")
                         {
                                 if (velocity.Y > 0)
@@ -206,19 +250,42 @@ namespace SugarAdventure
                                 canJump = true;
                             }
                         }
+                        else if(tileType == "lock_green")
+                        {
+                            if (HasItem("key_green")){
+                                tilesToCheck[x, y] = null;
+                            }
+                            if (velocity.Y > 0)
+                            {
+                                if (hitbox.Bottom > tileBox.Top)
+                                {
+                                    position.Y = tileBox.Top - hitbox.Height;
+                                    velocity.Y = 0;
+                                    canJump = true;
+                                }
+                            }
+                            else if (velocity.Y < 0)
+                            {
+                                if (hitbox.Top < tileBox.Bottom)
+                                {
+                                    position.Y = tileBox.Bottom;
+                                    velocity.Y = 0;
+                                }
+                            }
+                        }
 
                         if (tileType == "ladder")
                         {
                             canClimb = true;
                         }
-                        else
-                        {
-                            if (velocity.Y > 0)
-                            {
-                                canClimb = false;
-                                isClimbing = false;
-                            }
-                        }
+                        //else
+                        //{
+                        //    if (velocity.Y > 0)
+                        //    {
+                        //        canClimb = false;
+                        //        isClimbing = false;
+                        //    }
+                        //}
                     }
                 }
             }
@@ -239,11 +306,16 @@ namespace SugarAdventure
         {
             int boundWidth = _boundingLevel.GetLayer("Ground").LayerWidth;
             int boundHeight = _boundingLevel.GetLayer("Ground").LayerHeight;
-            Bounds = new Rectangle(Point.Zero, new Point(boundWidth - hitbox.Width, boundHeight - hitbox.Height));
+            bounds = new Rectangle(Point.Zero, new Point(boundWidth - hitbox.Width, boundHeight - hitbox.Height));
         }
 
         public void Jump()
         {
+            if (isClimbing)
+            {
+                isClimbing = false;
+                velocity.Y = -700;
+            }
             if (canJump)
                 velocity.Y = -1000;
             canJump = false;

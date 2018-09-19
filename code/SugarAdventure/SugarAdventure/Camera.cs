@@ -13,7 +13,10 @@ namespace SugarAdventure
         public static float ZoomStep = 0.25f;
         public static float Speed = 10;
 
+        private int originalWidth;
+        private int originalHeight;
 
+        private Rectangle Target;
         private Vector2 pos;
         public Vector2 Pos
         {
@@ -22,7 +25,6 @@ namespace SugarAdventure
                 return pos;
             }
         }
-        private Rectangle Target;
         private Rectangle bounds;
         public Rectangle Bounds
         {
@@ -43,10 +45,13 @@ namespace SugarAdventure
 
         public static float ZoomFactor { get; set; }
 
-        public Camera(Vector2 _pos, int _viewportWidth, int _viewportHeight, float _zoomFactor = 2.0f)
+        public Camera(Vector2 _pos, int _viewportWidth, int _viewportHeight, float _zoomFactor = 1.0f)
         {
             pos = _pos;
             ZoomFactor = _zoomFactor;
+
+            originalHeight = _viewportHeight;
+            originalWidth = _viewportWidth;
 
             ViewportWidth = (int)(_viewportWidth / ZoomFactor);
             ViewportHeight = (int)(_viewportHeight / ZoomFactor);
@@ -63,9 +68,12 @@ namespace SugarAdventure
 
         public void UpdateViewport(Rectangle _viewport)
         {
+            ZoomFactor = _viewport.Width / originalWidth;
+            
             ViewportWidth = (int)(_viewport.Width / ZoomFactor);
             ViewportHeight = (int)(_viewport.Height / ZoomFactor);
             bounds = new Rectangle(Point.Zero, new Point(boundWidth - ViewportWidth, boundHeight - ViewportHeight));
+            
         }
 
         public void SetTarget(Rectangle _target)

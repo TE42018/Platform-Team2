@@ -35,7 +35,7 @@ namespace SugarAdventure
 
         public void AddTile(Vector2 _pos, int _tileSize, int _gid)
         {
-            tiles.Add(new Tile(_pos, _tileSize, _gid));
+            //tiles.Add(new Tile(_pos, _tileSize, _gid));
         }
         
     }

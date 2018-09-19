@@ -11,7 +11,7 @@ using TiledSharp;
 
 namespace SugarAdventure
 {
-    class Level
+    public class Level
     {
         private TmxMap levelData;
         private TmxTileset[] tileSets;

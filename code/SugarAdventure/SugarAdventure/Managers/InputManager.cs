@@ -53,6 +53,11 @@ namespace SugarAdventure
             currKeyboardState = Keyboard.GetState();
         }
 
+        public bool IsKeyPressed(Keys key)
+        {
+            return currKeyboardState.IsKeyDown(key);
+        }
+
         public bool IsPressed(Action action)
         {
             return currKeyboardState.IsKeyDown(keyboardActionMapping[action]);

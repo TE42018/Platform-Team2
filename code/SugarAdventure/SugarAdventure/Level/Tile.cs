@@ -8,10 +8,20 @@ using System.Threading.Tasks;
 
 namespace SugarAdventure
 {
-    class Tile
+    public class Tile
     {
         Dictionary<int, string> specialTiles = new Dictionary<int, string>
         {
+            { 406, "Enemy_slime" },
+            { 407, "Player" },
+            { 8, "Platform" },
+            { 9, "Platform" },
+            { 10, "Platform" },
+            { 11, "Platform" },
+            { 22, "Platform" },
+            { 23, "Platform" },
+            { 24, "Platform" },
+            { 25, "Platform" },
             { 190, "Platform" },
             { 109, "Platform" },
             { 110, "Platform" },
@@ -23,6 +33,7 @@ namespace SugarAdventure
             { 126, "Platform" },
             { 108, "Slope_up" },
             { 107, "Slope_down" },
+            { 301, "Lock_green" },
             { 302, "Ladder" },
         };
 
@@ -32,6 +43,7 @@ namespace SugarAdventure
             { 401, "Coin_silver" },
             { 402, "Coin_bronze" },
             { 403, "Key_green" },
+            { 301, "Lock_green" },
         };
 
         private Rectangle hitbox;
@@ -66,11 +78,20 @@ namespace SugarAdventure
                 return gid;
             }
         }
+        private Texture2D texture;
+        public Texture2D Texture
+        {
+            get
+            {
+                return texture;
+            }
+        }
 
-        public Tile(Vector2 _pos, int _tileSize, int _gid)
+        public Tile(Vector2 _pos, Texture2D _texture, int _tileSize, int _gid)
         {
             gid = _gid;
             pos = _pos;
+            texture = _texture;
 
             if (specialTiles.ContainsKey(gid))
             {
@@ -95,6 +116,10 @@ namespace SugarAdventure
                         type = "ladder";
                         hitbox = new Rectangle(_pos.ToPoint(), new Point(_tileSize, _tileSize));
                         break;
+                    case "lock_green":
+                        type = "lock_green";
+                        hitbox = new Rectangle(_pos.ToPoint(), new Point(_tileSize, _tileSize));
+                        break;
                 }
             }
             else if (entityTiles.ContainsKey(gid))
@@ -105,7 +130,16 @@ namespace SugarAdventure
                 switch (entityType.ToLower())
                 {
                     case "coin_bronze":
-                        Console.WriteLine("COIN");
+                        Game1.entityManager.Add(new Coin(_pos, "bronze"));
+                        break;
+                    case "coin_silver":
+                        Game1.entityManager.Add(new Coin(_pos, "silver"));
+                        break;
+                    case "coin_gold":
+                        Game1.entityManager.Add(new Coin(_pos, "gold"));
+                        break;
+                    case "key_green":
+                        Game1.entityManager.Add(new Key(_pos, "green"));
                         break;
                 }
             }
@@ -123,6 +157,11 @@ namespace SugarAdventure
                 }
                 
             }
+        }
+
+        public void Draw(SpriteBatch spriteBatch, Color tintColor)
+        {
+            spriteBatch.Draw(texture, pos, tintColor);
         }
     }
 }

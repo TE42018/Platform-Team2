@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace SugarAdventure
 {
-    public interface IPickupable
+    interface IInteractable
     {
         Rectangle Hitbox { get; set; }
+        IPickupable Key { get; set; }
     }
 }

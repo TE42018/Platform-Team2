@@ -20,6 +20,7 @@ namespace SugarAdventure
     {
         private static Dictionary<LevelNumber, string> levelDict = new Dictionary<LevelNumber, string>() {
             { LevelNumber.level1, "sugar-adventure" },
+            { LevelNumber.level2, "SugarAdventure3" },
             //{ LevelNumber.level3, "sugar-adventure" },
             //{ LevelNumber.level2, "next-level" },
         };

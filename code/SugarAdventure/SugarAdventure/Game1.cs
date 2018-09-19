@@ -52,13 +52,14 @@ namespace SugarAdventure
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            entityManager.LoadContent();
             levelManager.LoadContent();
             level = levelManager.GetLevel(LevelNumber.level1);
 
 
             cam.SetBoundingLevel(level);
 
-            player = new Player(new Vector2(70 * 65, level.GetLayer("Ground").LayerHeight/2 + 70*4), level);
+            player = new Player(new Vector2(70 * 110, level.GetLayer("Ground").LayerHeight/2 + 70*4), level);
             player.LoadContent();
             player.SetBoundingLevel(level);
         }
@@ -73,7 +74,7 @@ namespace SugarAdventure
             //cam.Update(gameTime);
             inputManager.Update();
             if (inputManager.IsPressed(Action.Exit))
-                Instance.Exit();
+                instance.Exit();
 
             if (inputManager.IsPressed(Action.Up))
             {
@@ -103,15 +104,29 @@ namespace SugarAdventure
             {
                 player.Jump();
             }
+            if (inputManager.IsKeyPressed(Keys.R))
+            {
+                player.Reset();
+            }
             player.Update(gameTime);
+            entityManager.Update(player, gameTime);
             cam.SetTarget(player.Hitbox);
             cam.Update(gameTime);
 
             if (inputManager.IsTriggered(Action.Fullscreen))
             {
-                graphics.PreferredBackBufferWidth = 1920;
-                graphics.PreferredBackBufferHeight = 1080;
-                graphics.ApplyChanges();
+                if (!graphics.IsFullScreen)
+                {
+                    graphics.PreferredBackBufferWidth = 1920;
+                    graphics.PreferredBackBufferHeight = 1080;
+                    graphics.ApplyChanges();
+                }
+                else
+                {
+                    graphics.PreferredBackBufferWidth = 800;
+                    graphics.PreferredBackBufferHeight = 480;
+                    graphics.ApplyChanges();
+                }
                 cam.UpdateViewport(GraphicsDevice.Viewport.Bounds);
                 graphics.ToggleFullScreen();
             }
@@ -128,6 +143,7 @@ namespace SugarAdventure
             float mOffestX = -cam.Pos.X * Camera.ZoomFactor;
             float mOffestY = -cam.Pos.Y * Camera.ZoomFactor;
             
+            
             Matrix matrix = new Matrix(
                 mScaleX, 0, 0, 0,
                 0, mScaleY, 0, 0,
@@ -138,6 +154,7 @@ namespace SugarAdventure
             spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, matrix);
             
             level.Draw(spriteBatch);
+            entityManager.Draw(spriteBatch);
             player.Draw(spriteBatch);
             spriteBatch.End();
 

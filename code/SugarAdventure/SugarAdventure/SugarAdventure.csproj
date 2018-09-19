@@ -43,9 +43,12 @@
   <ItemGroup>
     <Compile Include="Camera.cs" />
     <Compile Include="Entities\Coin.cs" />
+    <Compile Include="Entities\Enemy.cs" />
     <Compile Include="Entities\Key.cs" />
+    <Compile Include="Entities\Lock.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Interfaces\IEntity.cs" />
+    <Compile Include="Interfaces\IInteractable.cs" />
     <Compile Include="Interfaces\IPickupable.cs" />
     <Compile Include="Level\Chunk.cs" />
     <Compile Include="Level\Layer.cs" />
