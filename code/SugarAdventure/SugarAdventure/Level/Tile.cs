@@ -5,47 +5,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TiledSharp;
 
 namespace SugarAdventure
 {
     public class Tile
     {
-        Dictionary<int, string> specialTiles = new Dictionary<int, string>
-        {
-            { 406, "Enemy_slime" },
-            { 407, "Player" },
-            { 8, "Platform" },
-            { 9, "Platform" },
-            { 10, "Platform" },
-            { 11, "Platform" },
-            { 22, "Platform" },
-            { 23, "Platform" },
-            { 24, "Platform" },
-            { 25, "Platform" },
-            { 190, "Platform" },
-            { 109, "Platform" },
-            { 110, "Platform" },
-            { 111, "Platform" },
-            { 112, "Platform" },
-            { 123, "Platform" },
-            { 124, "Platform" },
-            { 125, "Platform" },
-            { 126, "Platform" },
-            { 108, "Slope_up" },
-            { 107, "Slope_down" },
-            { 301, "Lock_green" },
-            { 302, "Ladder" },
-        };
+        private string collideable = "false";
+        public string Collideable {
+            get
+            {
+                return collideable;
+            }
+        }
 
-        Dictionary<int, string> entityTiles = new Dictionary<int, string>
+        private PropertyDict properties;
+        public PropertyDict Properties
         {
-            { 199, "Coin_gold" },
-            { 401, "Coin_silver" },
-            { 402, "Coin_bronze" },
-            { 403, "Key_green" },
-            { 301, "Lock_green" },
-        };
-
+            get
+            {
+                return properties;
+            }
+        }
         private Rectangle hitbox;
         public Rectangle Hitbox
         {
@@ -70,98 +51,81 @@ namespace SugarAdventure
                 return pos;
             }
         }
-        private int gid;
-        public int Gid
-        {
-            get
-            {
-                return gid;
-            }
-        }
         private Texture2D texture;
-        public Texture2D Texture
-        {
-            get
-            {
-                return texture;
-            }
+        //public Texture2D Texture
+        //{
+        //    get
+        //    {
+        //        return texture;
+        //    }
+        //}
+
+        public Tile(Tile original, Tile newTile)
+        { 
+            pos = original.Pos;
+            texture = newTile.texture;
+            type = newTile.Type;
+            hitbox = original.Hitbox;
         }
 
-        public Tile(Vector2 _pos, Texture2D _texture, int _tileSize, int _gid)
+        public Tile(Vector2 _pos, Texture2D _texture, int _tileSize, PropertyDict _properties, int _levelNumber)
         {
-            gid = _gid;
             pos = _pos;
             texture = _texture;
+            type = "none";
+            hitbox = new Rectangle(Point.Zero, Point.Zero);
 
-            if (specialTiles.ContainsKey(gid))
+            if (_properties != null)
             {
-                string tileType;
-                specialTiles.TryGetValue(gid, out tileType);
-
-                switch (tileType.ToLower())
+                _properties.TryGetValue("Type", out type);
+                _properties.TryGetValue("Collideable", out collideable);
+                
+                switch (type.ToLower())
                 {
+                    case "block":
+                        hitbox = new Rectangle(pos.ToPoint(), new Point(texture.Width, texture.Height));
+                        break;
                     case "platform":
-                        type = "block";
-                        hitbox = new Rectangle(_pos.ToPoint(), new Point(_tileSize, _tileSize/2));
-                        break;
-                    case "slope_up":
-                        type = "slope_up";
-                        hitbox = new Rectangle(_pos.ToPoint(), new Point(_tileSize, _tileSize));
-                        break;
-                    case "slope_down":
-                        type = "slope_down";
-                        hitbox = new Rectangle(_pos.ToPoint(), new Point(_tileSize, _tileSize));
+                        hitbox = new Rectangle(pos.ToPoint(), new Point(texture.Width, texture.Height / 2));
                         break;
                     case "ladder":
-                        type = "ladder";
-                        hitbox = new Rectangle(_pos.ToPoint(), new Point(_tileSize, _tileSize));
+                        hitbox = new Rectangle(pos.ToPoint(), new Point(texture.Width, texture.Height));
+                        break;
+                    case "slope_up":
+                        hitbox = new Rectangle(pos.ToPoint(), new Point(texture.Width, texture.Height));
+                        break;
+                    case "slope_down":
+                        hitbox = new Rectangle(pos.ToPoint(), new Point(texture.Width, texture.Height));
                         break;
                     case "lock_green":
-                        type = "lock_green";
-                        hitbox = new Rectangle(_pos.ToPoint(), new Point(_tileSize, _tileSize));
+                        hitbox = new Rectangle(pos.ToPoint(), new Point(texture.Width, texture.Height));
                         break;
-                }
-            }
-            else if (entityTiles.ContainsKey(gid))
-            {
-                string entityType;
-                entityTiles.TryGetValue(gid, out entityType);
 
-                switch (entityType.ToLower())
-                {
+
                     case "coin_bronze":
-                        Game1.entityManager.Add(new Coin(_pos, "bronze"));
+                        texture = null;
+                        SugarGame.entityManager.Add(new Coin(pos, "bronze", _levelNumber));
                         break;
                     case "coin_silver":
-                        Game1.entityManager.Add(new Coin(_pos, "silver"));
+                        texture = null;
+                        SugarGame.entityManager.Add(new Coin(pos, "silver", _levelNumber));
                         break;
                     case "coin_gold":
-                        Game1.entityManager.Add(new Coin(_pos, "gold"));
+                        texture = null;
+                        SugarGame.entityManager.Add(new Coin(pos, "gold", _levelNumber));
                         break;
                     case "key_green":
-                        Game1.entityManager.Add(new Key(_pos, "green"));
+                        texture = null;
+                        SugarGame.entityManager.Add(new Key(pos, "green", _levelNumber));
                         break;
                 }
-            }
-            else
-            {
-                if (gid != 0)
-                {
-                    type = "block";
-                    hitbox = new Rectangle(_pos.ToPoint(), new Point(_tileSize, _tileSize));
-                }
-                else
-                {
-                    type = "none";
-                    hitbox = new Rectangle(Point.Zero, Point.Zero);
-                }
-                
             }
         }
 
         public void Draw(SpriteBatch spriteBatch, Color tintColor)
         {
-            spriteBatch.Draw(texture, pos, tintColor);
+            if(texture != null)
+                spriteBatch.Draw(texture, pos, tintColor);
         }
     }
 }

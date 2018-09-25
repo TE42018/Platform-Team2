@@ -14,13 +14,15 @@ namespace SugarAdventure
         public Vector2 Position { get; set; }
         public Rectangle Hitbox { get; set; }
         public Texture2D Texture { get; set; }
+        public int LevelNumber { get; set; }
 
         public int Value { get; set; }
         public Point Size { get; set; }
 
-        public Coin(Vector2 _pos, string _type)
+        public Coin(Vector2 _pos, string _type, int _levelNumber)
         {
             Type = "coin_" + _type;
+            LevelNumber = _levelNumber;
             Position = _pos;
             Size = new Point(47, 47);
 
@@ -28,15 +30,15 @@ namespace SugarAdventure
             {
                 case "coin_bronze":
                     Value = 1;
-                    Texture = Game1.entityManager.Textures[(int)EntityTexture.Coin_bronze];
+                    Texture = SugarGame.entityManager.Textures[(int)EntityTexture.Coin_bronze];
                     break;
                 case "coin_silver":
                     Value = 3;
-                    Texture = Game1.entityManager.Textures[(int)EntityTexture.Coin_silver];
+                    Texture = SugarGame.entityManager.Textures[(int)EntityTexture.Coin_silver];
                     break;
                 case "coin_gold":
                     Value = 5;
-                    Texture = Game1.entityManager.Textures[(int)EntityTexture.Coin_gold];
+                    Texture = SugarGame.entityManager.Textures[(int)EntityTexture.Coin_gold];
                     break;
             }
 

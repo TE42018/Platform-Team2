@@ -13,10 +13,12 @@ namespace SugarAdventure
     public class Layer
     {
         Tile[,] Tiles;
+        
         Texture2D[] layerImageBuffer;
         int[] tileDrawingBlacklist = { 403, 406, 407, 199, 401, 402 };
         int[] tileBoxBlacklist = { 406, 407, 199, 401, 402, 302 };
         int[] tintedTiles = { 145 };
+        int levelNumber;
 
         private int layerWidth;
         public int LayerWidth
@@ -40,8 +42,9 @@ namespace SugarAdventure
         private TmxLayer layerData;
         private TmxTileset[] tilesets;
 
-        public Layer(TmxLayer _layer, TmxTileset[] _tilesets, int _width, int _height)
+        public Layer(TmxLayer _layer, TmxTileset[] _tilesets, int _width, int _height, int _levelNumber)
         {
+            levelNumber = _levelNumber;
             layerData = _layer;
             tilesets = _tilesets;
 
@@ -66,7 +69,7 @@ namespace SugarAdventure
 
         private Texture2D[] BuildLayerImages(TmxLayerTile[] _layerTiles, out Texture2D[] _layerImageBuffer)
         {
-            GraphicsDevice tempGraphicsDevice = Game1.graphics.GraphicsDevice;
+            GraphicsDevice tempGraphicsDevice = SugarGame.graphics.GraphicsDevice;
             SpriteBatch tempSpriteBatch = new SpriteBatch(tempGraphicsDevice);
 
             RenderTarget2D leftTempTarget = new RenderTarget2D(tempGraphicsDevice, tileWidth * (layerWidthInTiles / 2), layerHeight);
@@ -167,7 +170,7 @@ namespace SugarAdventure
             Color[] rawData = new Color[tileRect.Width * tileRect.Height];
             _tilesheet.GetData(0, tileRect, rawData, 0, tileRect.Width * tileRect.Height);
 
-            _outputTexture = new Texture2D(Game1.graphics.GraphicsDevice, tileRect.Width, tileRect.Height);
+            _outputTexture = new Texture2D(SugarGame.graphics.GraphicsDevice, tileRect.Width, tileRect.Height);
             _outputTexture.SetData(rawData);
 
             return _outputTexture;
@@ -177,7 +180,7 @@ namespace SugarAdventure
         {
             string tilesheetImageSource = tileset.Image.Source.Split('.')[0];
 
-            _texture = Game1.contentManager.Load<Texture2D>(@"." + tilesheetImageSource);
+            _texture = SugarGame.contentManager.Load<Texture2D>(@"." + tilesheetImageSource);
 
             return _texture;
         }
@@ -197,7 +200,7 @@ namespace SugarAdventure
                     tilesetResult = currentTileset;
                 }
             }
-
+            
             return tilesetResult;
         }
 
@@ -213,13 +216,20 @@ namespace SugarAdventure
 
                 Texture2D tileTexture = null;
                 TmxTileset tileTileset = FindTileset(tile.Gid);
+                PropertyDict properties = null;
+
+
                 if (tileTileset != null)
                 {
+                    //Console.WriteLine(tile.Gid);
+                    
+                    properties = tileTileset.Tiles[tile.Gid - tileTileset.FirstGid].Properties;
+                    //Console.WriteLine(properties);
                     Texture2D tileTilesheet = GetTilesheet(tileTileset, out tileTilesheet);
                     tileTexture = GetTileTexture(tile.Gid, tileTileset, tileTilesheet, out tileTexture);
                 }
 
-                Tiles[tile.X, tile.Y] = new Tile(tilePos, tileTexture, tileWidth, tile.Gid);
+                Tiles[tile.X, tile.Y] = new Tile(tilePos, tileTexture, tileWidth, properties, levelNumber);
             }
         }
 
@@ -250,21 +260,20 @@ namespace SugarAdventure
                 for (int x = 0; x < Tiles.GetLength(0); x++)
                 {
                     Tile t = Tiles[x, y];
-                    
-                    if (t == null || t.Texture == null)
+
+                    if (t == null || t.Type == "none")// || t.Texture == null)
                         continue;
 
-                    if (!tileDrawingBlacklist.Contains(t.Gid))
-                    {
-                        if (layerData.Name != "Ground" && tintedTiles.Contains(t.Gid))
+                    //if (!tileDrawingBlacklist.Contains(t.Gid))
+                    //{
+                    //Console.WriteLine(t.Properties["Collideable"]);
+                        if (layerData.Name != "Ground" && t.Collideable == "true")
                             t.Draw(spriteBatch, Color.Brown);
                         else
                             t.Draw(spriteBatch, Color.White);
-                    }
+                    //}
                 }
             }
-            //spriteBatch.Draw(layerImageBuffer[0], Vector2.Zero, Color.White);
-            //spriteBatch.Draw(layerImageBuffer[1], new Vector2(layerImageBuffer[0].Width, 0), Color.White);
         }
     }
 }

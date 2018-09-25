@@ -14,6 +14,7 @@ namespace SugarAdventure
         Vector2 Position { get; set; }
         Texture2D Texture { get; set; }
         Point Size { get; set; }
+        int LevelNumber { get; set; }
 
         void Draw(SpriteBatch spriteBatch);
     }

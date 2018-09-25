@@ -11,6 +11,7 @@ namespace SugarAdventure
 {
     public class Player
     {
+        private SoundEffect jumpEffect;
         private HashSet<IPickupable> inventory;
         private Level level;
         private Texture2D texture;
@@ -38,7 +39,7 @@ namespace SugarAdventure
         bool canClimb;
 
 
-        public Action CurrentAction { get; set; }
+        public Actions CurrentAction { get; set; }
 
         public Player(Vector2 _position, Level _level)
         {
@@ -54,7 +55,8 @@ namespace SugarAdventure
 
         public void LoadContent()
         {
-            texture = Game1.contentManager.Load<Texture2D>(@"Platformer assets (1330 assets)/Extra animations and enemies (165 assets)/Alien sprites/alienPink");
+            texture = SugarGame.contentManager.Load<Texture2D>(@".\Platformer_assets\Aliens\alienPink");
+            jumpEffect = SugarGame.contentManager.Load<SoundEffect>("jump");
             hitbox = new Rectangle(position.ToPoint(), new Point(texture.Width, texture.Height));
         }
 
@@ -122,12 +124,12 @@ namespace SugarAdventure
                     Tile t = tilesToCheck[x, y];
                     if (t == null)
                         continue;
-                    string tileType = t.Type;
+                    string tileType = t.Type.ToLower();
                     Rectangle tileBox = t.Hitbox;
 
                     if (hitbox.Intersects(tileBox))
                     {
-                        if (tileType == "block")
+                        if (tileType == "block" || tileType == "platform")
                         {
                             if (velocity.X > 0)
                             {
@@ -199,12 +201,12 @@ namespace SugarAdventure
                     if (t == null || t.Hitbox == null)
                         continue;
                     
-                    string tileType = t.Type;
+                    string tileType = t.Type.ToLower();
                     Rectangle tileBox = t.Hitbox;
                     if (hitbox.Intersects(tileBox))
                     {
                         //Console.WriteLine(tileType);
-                        if (tileType == "block")
+                        if (tileType == "block" || tileType == "platform")
                         {
                                 if (velocity.Y > 0)
                                 {
@@ -253,7 +255,7 @@ namespace SugarAdventure
                         else if(tileType == "lock_green")
                         {
                             if (HasItem("key_green")){
-                                tilesToCheck[x, y] = null;
+                                tilesToCheck[x, y] = new Tile(tilesToCheck[x, y], tilesToCheck[x, y + 1]);
                             }
                             if (velocity.Y > 0)
                             {
@@ -278,14 +280,6 @@ namespace SugarAdventure
                         {
                             canClimb = true;
                         }
-                        //else
-                        //{
-                        //    if (velocity.Y > 0)
-                        //    {
-                        //        canClimb = false;
-                        //        isClimbing = false;
-                        //    }
-                        //}
                     }
                 }
             }
@@ -317,7 +311,10 @@ namespace SugarAdventure
                 velocity.Y = -700;
             }
             if (canJump)
+            {
+                jumpEffect.Play();
                 velocity.Y = -1000;
+            }
             canJump = false;
         }
 

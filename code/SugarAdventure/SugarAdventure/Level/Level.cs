@@ -15,6 +15,8 @@ namespace SugarAdventure
     {
         private TmxMap levelData;
         private TmxTileset[] tileSets;
+        
+
         private List<Layer> layers = new List<Layer>();
         public List<Layer> Layers
         {
@@ -35,7 +37,7 @@ namespace SugarAdventure
             }
         }
 
-        public Level(string _levelSource, string _levelFolderName, string _levelFileName)
+        public Level(string _levelSource, string _levelFolderName, string _levelFileName, int _levelNumber)
         {
             levelData = GetLevelFile(_levelSource, _levelFolderName, _levelFileName);
             
@@ -55,7 +57,7 @@ namespace SugarAdventure
             for (int i = 0; i < layerCount; i++)
             {
                 TmxLayer currentLayer = levelData.Layers[i];                
-                layers.Add(new Layer(currentLayer, tileSets, width, height));
+                layers.Add(new Layer(currentLayer, tileSets, width, height, _levelNumber));
             }
         }
 
@@ -88,11 +90,6 @@ namespace SugarAdventure
                     return layers[i];
             }
             return null;
-        }
-
-        public void SetPosition(Vector2 _position)
-        {
-            position = _position;
         }
     }
 }

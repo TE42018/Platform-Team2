@@ -59,7 +59,7 @@ namespace SugarAdventure
 
             cam.SetBoundingLevel(level);
 
-            player = new Player(new Vector2(70 * 110, level.GetLayer("Ground").LayerHeight/2 + 70*4), level);
+            player = new Player(new Vector2(70 * 1, level.GetLayer("Ground").LayerHeight/2 + 70*4), level);
             player.LoadContent();
             player.SetBoundingLevel(level);
         }

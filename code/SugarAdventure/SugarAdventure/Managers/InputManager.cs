@@ -1,71 +1,102 @@
-﻿using Microsoft.Xna.Framework.Input;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Audio;
+
 
 namespace SugarAdventure
 {
-    public enum Action
+    public enum Actions
     {
         Up,
         Down,
         Left,
         Right,
         Jump,
-        ZoomIn,
-        ZoomOut,
-        Fullscreen,
-        Exit
+        Enter,
+        Back,
+        None
     }
 
     public class InputManager
     {
-        private Dictionary<Action, Keys> keyboardActionMapping = new Dictionary<Action, Keys>()
+        private Dictionary<Actions, Keys> keyboardActionMapping = new Dictionary<Actions, Keys>()
         {
-            { Action.Up, Keys.Up },
-            { Action.Down, Keys.Down },
-            { Action.Left, Keys.Left },
-            { Action.Right, Keys.Right },
-            { Action.Jump, Keys.Space },
-            { Action.Exit, Keys.Escape },
-            { Action.ZoomIn, Keys.OemPlus },
-            { Action.ZoomOut, Keys.OemMinus },
-            { Action.Fullscreen, Keys.F },
+            { Actions.Up, Keys.Up },
+            { Actions.Down, Keys.Down },
+            { Actions.Left, Keys.Left },
+            { Actions.Right, Keys.Right },
+            { Actions.Jump, Keys.Space },
+            { Actions.Enter, Keys.Enter },
+            { Actions.Back, Keys.Escape },
         };
-
-        private bool isUsingKeyboard;
+        
+        private Dictionary<Actions, Buttons> gamepadActionMapping = new Dictionary<Actions, Buttons>()
+        {
+            { Actions.Up, Buttons.LeftThumbstickUp },
+            { Actions.Down, Buttons.LeftThumbstickDown },
+            { Actions.Left, Buttons.LeftThumbstickLeft },
+            { Actions.Right, Buttons.LeftThumbstickRight },
+            { Actions.Jump, Buttons.A },
+            { Actions.Enter, Buttons.A },
+            { Actions.Back, Buttons.B },
+        };
 
         private KeyboardState currKeyboardState;
         private KeyboardState prevKeyboardState;
+        private GamePadState currGamePadState;
+        private GamePadState prevGamePadState;
 
-        public InputManager(bool _isUsingKeyboard = true)
+        public InputManager()
         {
-            isUsingKeyboard = _isUsingKeyboard;
             currKeyboardState = Keyboard.GetState();
             prevKeyboardState = currKeyboardState;
+            
+            currGamePadState = GamePad.GetState(PlayerIndex.One);
+            prevGamePadState = currGamePadState;
         }
 
         public void Update()
         {
             prevKeyboardState = currKeyboardState;
             currKeyboardState = Keyboard.GetState();
+           
+            prevGamePadState = currGamePadState;
+            currGamePadState = GamePad.GetState(PlayerIndex.One);
+           
         }
 
         public bool IsKeyPressed(Keys key)
         {
             return currKeyboardState.IsKeyDown(key);
         }
-
-        public bool IsPressed(Action action)
+        public bool IsKeyTriggered(Keys key)
         {
-            return currKeyboardState.IsKeyDown(keyboardActionMapping[action]);
+            return currKeyboardState.IsKeyDown(key) && !prevKeyboardState.IsKeyDown(key);
         }
 
-        public bool IsTriggered(Action action)
+        public bool IsButtonPressed(Buttons button)
         {
-            return currKeyboardState.IsKeyDown(keyboardActionMapping[action]) && !prevKeyboardState.IsKeyDown(keyboardActionMapping[action]);
+            return currGamePadState.IsButtonDown(button);
+        }
+
+        public bool IsPressed(Actions action)
+        {
+            return currKeyboardState.IsKeyDown(keyboardActionMapping[action]) || currGamePadState.IsButtonDown(gamepadActionMapping[action]);
+        }
+
+        public bool IsTriggered(Actions action)
+        {
+            return currKeyboardState.IsKeyDown(keyboardActionMapping[action]) && !prevKeyboardState.IsKeyDown(keyboardActionMapping[action]) ||
+                   currGamePadState.IsButtonDown(gamepadActionMapping[action]) && !prevGamePadState.IsButtonDown(gamepadActionMapping[action]);
         }
     }
 }
+
+

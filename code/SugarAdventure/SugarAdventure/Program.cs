@@ -14,7 +14,7 @@ namespace SugarAdventure
         [STAThread]
         static void Main()
         {
-                Game1.Instance.Run();
+                SugarGame.Instance.Run();
         }
     }
 #endif

@@ -16,11 +16,11 @@ namespace SugarAdventure
         level5
     }
 
-    class LevelManager
+    public class LevelManager
     {
         private static Dictionary<LevelNumber, string> levelDict = new Dictionary<LevelNumber, string>() {
             { LevelNumber.level1, "sugar-adventure" },
-            { LevelNumber.level2, "SugarAdventure3" },
+            { LevelNumber.level2, "sugar-mario" },
             //{ LevelNumber.level3, "sugar-adventure" },
             //{ LevelNumber.level2, "next-level" },
         };
@@ -57,7 +57,7 @@ namespace SugarAdventure
                 string levelFileName = "";
                 levelDict.TryGetValue(levelArray[i], out levelFileName);
 
-                levels[i] = new Level(levelSource, levelFolderName, levelFileName);
+                levels[i] = new Level(levelSource, levelFolderName, levelFileName, i+1);
             }
         }
 

@@ -14,10 +14,12 @@ namespace SugarAdventure.Entities
         public Vector2 Position { get; set; }
         public Texture2D Texture { get; set; }
         public Point Size { get; set; }
+        public int LevelNumber { get; set; }
 
-        public Enemy(Vector2 _pos, string _type)
+        public Enemy(Vector2 _pos, string _type, int _levelNumber)
         {
             Type = "enemy_" + _type;
+            LevelNumber = _levelNumber;
 
             switch (Type)
             {
