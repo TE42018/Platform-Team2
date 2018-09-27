@@ -116,7 +116,7 @@ namespace SugarAdventure
             }
 
 
-            Console.WriteLine(amountString.Length);
+            //Console.WriteLine(amountString.Length);
             
         }
 
@@ -195,10 +195,7 @@ namespace SugarAdventure
             pSpriteBatch.Begin();
 
             DrawHearts(pSpriteBatch, Vector2.One, 7, 10);
-            DrawCoins(pSpriteBatch, new Vector2(SugarGame.graphics.PreferredBackBufferWidth, 0), 1234567890);
-
-            //pSpriteBatch.Draw(hud_coins, new Rectangle(690, 2, 32, 32), Color.White);
-            //pSpriteBatch.Draw(hud_x, new Rectangle(720, 2, 32, 32), Color.White);
+            DrawCoins(pSpriteBatch, new Vector2(SugarGame.graphics.PreferredBackBufferWidth, 0), 1200);
 
             pSpriteBatch.Draw(hud_keyBlue_Disabled, new Rectangle(630, 2, 32, 32), Color.White);
             pSpriteBatch.Draw(hud_keyGreen_Disabled, new Rectangle(600, 2, 32, 32), Color.White);

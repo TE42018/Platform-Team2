@@ -130,7 +130,7 @@ namespace SugarAdventure
                     Kill();
                 }
                 damageCounter = 1;
-                Console.WriteLine(Health);
+                //Console.WriteLine(Health);
                 
             }
         }

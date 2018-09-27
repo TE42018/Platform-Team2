@@ -59,6 +59,8 @@ namespace SugarAdventure
             ViewportWidth = (int)(_viewportWidth / ZoomFactor);
             ViewportHeight = (int)(_viewportHeight / ZoomFactor);
 
+            Console.WriteLine($"{ViewportWidth}, {ViewportHeight}");
+
             mScaleX = (float)SugarGame.graphics.PreferredBackBufferWidth / ViewportWidth;
             mScaleY = (float)SugarGame.graphics.PreferredBackBufferHeight / ViewportHeight;
         }
