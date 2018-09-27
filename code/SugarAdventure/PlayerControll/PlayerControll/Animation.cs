@@ -23,7 +23,6 @@ namespace PlayerControll
             FrameCount = frameCount;
             IsLooping = true;
             FrameSpeed = 0.2f;
-
         }
 
     }

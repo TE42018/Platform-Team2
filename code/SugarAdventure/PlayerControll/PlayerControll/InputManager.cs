@@ -54,8 +54,6 @@ namespace PlayerControll
         private GamePadState currGamePadState;
         private GamePadState prevGamePadState;
 
-        public Keys Left { get; internal set; }
-        public Keys Right { get; internal set; }
 
         public InputManager(bool _isUsingKeyboard = true)
         {

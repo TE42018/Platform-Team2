@@ -18,8 +18,6 @@ namespace PlayerControll
         SpriteBatch spriteBatch;
         InputManager input;
 
-        private List<Sprite> _sprites;
-
         Player Character;
 
         SoundEffect effect;
@@ -41,30 +39,11 @@ namespace PlayerControll
         {
            
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            var animations = new Dictionary<string, Animation>()
-            {
-                {"alien_walk1", new Animation(Content.Load<Texture2D>("Player/alienPink_walk1"), 1) },
-                {"alien_walk2", new Animation(Content.Load<Texture2D>("Player/alienPink_walk2"), 1) },
-            };
-
-            //_sprites = new List<Sprite>()
-            //{
-            //    new Sprite(animations)
-            //    {
-            //        Position = new Vector2(100,100),
-            //        Input = new InputManager()
-            //        {
-            //            Right = Keys.Right,
-            //            Left = Keys.Left
-            //        },
-            //    },
-            //};
-            Character = new Player(Content.Load<Texture2D>("p3_front"), new Vector2(50, 50));
+            Character = new Player(Content.Load<Texture2D>("standPink"), new Vector2(50, 50));
             Character.LoadContent(Content);
             
             effect = Content.Load<SoundEffect>("Mario_Jumping-Mike_Koenig-989896458");
-            song = Content.Load<Song>("Seinfeld");
+            //song = Content.Load<Song>("Seinfeld");
 
             MediaPlayer.Play(song);
         }
@@ -77,9 +56,6 @@ namespace PlayerControll
         protected override void Update(GameTime gameTime)
         {
             input.Update();
-
-            //foreach (var sprite in _sprites)
-                //sprite.Update(gameTime, _sprites);
 
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
@@ -95,13 +71,26 @@ namespace PlayerControll
             }
             else if (input.IsPressed(Action.Left))
             {
-                Character.MoveRight();
+                Character.MoveLeft();
             }
-
             else
             {
-                Character.CurrentAction = Action.None;
+                Character.Stop();
             }
+
+            if (input.IsPressed(Action.Up))
+            {
+                Character.ClimbUp();
+            }
+            else if (input.IsPressed(Action.Down))
+            {
+                Character.ClimbDown();
+            }
+
+            /*else
+            {
+                Character.CurrentAction = Action.None;
+            }*/
 
             Character.Update(gameTime, effect);
 
@@ -114,8 +103,6 @@ namespace PlayerControll
 
             spriteBatch.Begin();
 
-            //foreach (var sprite in _sprites)
-                //sprite.Draw(spriteBatch);
             Character.Draw(spriteBatch);
             spriteBatch.End();
 

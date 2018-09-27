@@ -16,6 +16,9 @@ namespace PlayerControll
     {
         Texture2D texture;
         Animation walkAnim;
+        Animation jumpAnim;
+        Animation climbAnim;
+        Animation standAnim;
         AnimationManager animator;
 
         Vector2 position;
@@ -23,9 +26,8 @@ namespace PlayerControll
 
         bool hasJumped;
         bool isClimbing;
-        bool isOnGround;
-        bool canClimb;
-       
+        private bool isOnGround;
+        private bool canClimb;
 
         public Action CurrentAction { get; set; }
 
@@ -39,9 +41,16 @@ namespace PlayerControll
 
         public void LoadContent(ContentManager Content)
         {
+            standAnim = new Animation(Content.Load<Texture2D>("standPink"), 1);
+            animator = new AnimationManager(standAnim);
+
             walkAnim = new Animation(Content.Load<Texture2D>("walkPink"), 10);
-            walkAnim.FrameSpeed = 0.01f;
-            animator = new AnimationManager(walkAnim);
+            walkAnim.FrameSpeed = 0.04f;
+
+            climbAnim = new Animation(Content.Load<Texture2D>("climbPink"), 2);
+            climbAnim.FrameSpeed = 0.15f;
+
+            jumpAnim = new Animation(Content.Load<Texture2D>("alienPink_jump"), 1);
         }
 
         public void Update(GameTime gameTime, SoundEffect effect)
@@ -49,32 +58,55 @@ namespace PlayerControll
             position += velocity;
            
             float i = 1;
-            velocity.Y += 0.15f * i;
+            if(!isClimbing)
+                velocity.Y += 0.15f * i;
 
-            if (position.Y + texture.Height >= 450)
+            if (position.Y + texture.Height > 480)
             {
-                position.Y = 450 - texture.Height;
+                position.Y = 480 - texture.Height;
                 velocity.Y = 0;
                 isOnGround = true;
             }
 
             animator.Position = position;
-            
 
-            switch (CurrentAction)
+            if (isClimbing)
             {
-                case Action.Left: velocity.X = -3f; animator.Update(gameTime); break;
-                case Action.Right: velocity.X = 3f; animator.Update(gameTime); break;
-                case Action.None: velocity.X = 0f; animator.Stop(); break;
+                animator.Play(climbAnim);
+                switch (CurrentAction)
+                {
+                    case Action.Up: velocity.Y = -3f; animator.Update(gameTime); break;
+                    case Action.Down: velocity.Y = 3f; animator.Update(gameTime); break;
+                    default: velocity.Y = 0; break;
+                }
             }
-            
+            else if (!isOnGround)
+            {
+                animator.Play(jumpAnim);
+            }
+            else
+            {
+                animator.Play(walkAnim);
+                switch (CurrentAction)
+                {
+                    case Action.Left: velocity.X = -3f; animator.Update(gameTime); break;
+                    case Action.Right: velocity.X = 3f; animator.Update(gameTime); break;
+                    default: velocity.X = 0f; animator.Play(standAnim); animator.Stop(); break;
+                }
+            }
+
         }
 
         public void Jump()
         {
             if (isOnGround)
-            velocity.Y = -6f;
-            isOnGround = false;
+            {
+                velocity.Y = -6f;
+                isOnGround = false;
+                CurrentAction = Action.Jump;
+                animator.Play(jumpAnim);
+            }
+            isClimbing = false;
         }
 
         public void MoveLeft()
@@ -87,8 +119,20 @@ namespace PlayerControll
             CurrentAction = Action.Right;
         }
 
+        public void Stop()
+        {
+            CurrentAction = Action.None;
+        }
+
+        public void StopClimbing()
+        {
+            CurrentAction = Action.None;
+        }
+
         public void ClimbUp()
         {
+            isClimbing = true;
+            CurrentAction = Action.Up;
             if (canClimb)
             {
 
@@ -96,6 +140,7 @@ namespace PlayerControll
         }
         public void ClimbDown()
         {
+            CurrentAction = Action.Down;
             if (canClimb && !isOnGround)
             {
 
@@ -108,9 +153,11 @@ namespace PlayerControll
             {
                 case Action.Right: animator.Draw(spriteBatch); break;
                 case Action.Left: animator.Draw(spriteBatch, true); break;
+                case Action.Up: animator.Draw(spriteBatch); break;
+                case Action.Down: animator.Draw(spriteBatch); break;
+                case Action.None: animator.Draw(spriteBatch, velocity.X < 0); break;
                 default: animator.Draw(spriteBatch); break;
             }
-            //spriteBatch.Draw(texture, position, Color.White);
         }
     }
 }
