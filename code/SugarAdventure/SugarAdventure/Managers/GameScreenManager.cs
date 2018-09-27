@@ -65,7 +65,9 @@ namespace SugarAdventure
 
         public void Draw(SpriteBatch pSpriteBatch)
         {
-            gamescreens.Peek().Draw(pSpriteBatch);
+            GameScreen gameScreen = gamescreens.Peek();
+            if(gameScreen.Initialized)
+                gameScreen.Draw(pSpriteBatch);
         }
     }
 }
