@@ -39,7 +39,7 @@ namespace SugarAdventure
 
         public LevelManager()
         {
-            levelSource = Path.GetFullPath("..\\..\\..\\..\\..\\..\\..\\data\\levels\\");
+            levelSource = Path.GetFullPath("data\\levels\\");
         }
 
         public void LoadContent()

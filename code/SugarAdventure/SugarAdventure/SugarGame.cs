@@ -45,7 +45,7 @@ namespace SugarAdventure
             graphics = new GraphicsDeviceManager(this);
             inputManager = new InputManager();
             levelManager = new LevelManager();
-            levelManager.SetSource(@"C:\Users\alexander.emland\Documents\Git\Projects\SugarAdventure\Platform-Team2\data\levels\");
+            levelManager.SetSource(@"data\levels\");
             gsm = new GameScreenManager();
 
             gsm.Push(new StartupGameScreen());

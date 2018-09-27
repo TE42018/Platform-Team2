@@ -48,6 +48,7 @@
     <Compile Include="GameScreens\GameScreen.cs" />
     <Compile Include="GameScreens\MainGameScreen.cs" />
     <Compile Include="GameScreens\StartupGameScreen.cs" />
+    <Compile Include="Interfaces\IEnemy.cs" />
     <Compile Include="Managers\GameScreenManager.cs" />
     <Compile Include="Interfaces\IEntity.cs" />
     <Compile Include="Interfaces\IInteractable.cs" />
@@ -1454,6 +1455,18 @@
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
+    <None Include="..\..\..\data\levels\level1\sugar-adventure.tmx">
+      <Link>Data\level1\sugar-adventure.tmx</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\..\data\levels\level2\sugar-mario.tmx">
+      <Link>Data\level2\sugar-mario.tmx</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\..\data\levels\level3\sugar-adventure.tmx">
+      <Link>Data\level3\sugar-adventure.tmx</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="app.manifest" />
     <None Include="obj\x86\Release\SugarAdventure.csproj.CoreCompileInputs.cache" />
     <None Include="packages.config" />
