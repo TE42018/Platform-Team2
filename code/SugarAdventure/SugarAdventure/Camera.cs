@@ -15,8 +15,8 @@ namespace SugarAdventure
 
         private int originalWidth;
         private int originalHeight;
-        private float mScaleX;
-        private float mScaleY;
+        private static float mScaleX;
+        private static float mScaleY;
 
         private Rectangle Target;
         private Vector2 pos;
@@ -27,7 +27,7 @@ namespace SugarAdventure
                 return pos;
             }
         }
-        private Rectangle bounds;
+        private static Rectangle bounds;
         public Rectangle Bounds
         {
             get
@@ -38,11 +38,11 @@ namespace SugarAdventure
 
         public static Vector2 Offset { get; set; }
         public static Level BoundingLevel { get; set; }
-        public int ViewportWidth { get; set; }
-        public int ViewportHeight { get; set; }
+        public static int ViewportWidth { get; set; }
+        public static int ViewportHeight { get; set; }
         public Matrix ViewMatrix { get; set; }
-        int boundWidth;
-        int boundHeight;
+        static int boundWidth;
+        static int boundHeight;
 
 
 
@@ -53,8 +53,8 @@ namespace SugarAdventure
             pos = _pos;
             ZoomFactor = _zoomFactor;
 
-            originalHeight = _viewportHeight;
-            originalWidth = _viewportWidth;
+            originalHeight = (int)(_viewportHeight / _zoomFactor);
+            originalWidth = (int)(_viewportWidth / _zoomFactor);
 
             ViewportWidth = (int)(_viewportWidth / ZoomFactor);
             ViewportHeight = (int)(_viewportHeight / ZoomFactor);
@@ -63,15 +63,15 @@ namespace SugarAdventure
             mScaleY = (float)SugarGame.graphics.PreferredBackBufferHeight / ViewportHeight;
         }
 
-        public void SetBoundingLevel(Level _boundingLevel)
+        public static void SetBoundingLevel(Level _boundingLevel)
         {
             boundWidth = _boundingLevel.GetLayer("Ground").LayerWidth;
             boundHeight = _boundingLevel.GetLayer("Ground").LayerHeight;
 
             bounds = new Rectangle(Point.Zero, new Point(boundWidth - ViewportWidth, boundHeight - ViewportHeight));
 
-            mScaleX = SugarGame.graphics.PreferredBackBufferWidth / ViewportWidth;
-            mScaleY = SugarGame.graphics.PreferredBackBufferHeight / ViewportHeight;
+            mScaleX = (float)SugarGame.graphics.PreferredBackBufferWidth / ViewportWidth;
+            mScaleY = (float)SugarGame.graphics.PreferredBackBufferHeight / ViewportHeight;
         }
 
         public void UpdateViewport(Rectangle _viewport)
@@ -103,7 +103,7 @@ namespace SugarAdventure
             float mOffestX = -Pos.X * ZoomFactor;
             float mOffestY = -Pos.Y * ZoomFactor;
 
-            Console.WriteLine(bounds.Width + ", " + bounds.Height);
+            //Console.WriteLine(bounds.Width + ", " + bounds.Height);
 
             ViewMatrix = new Matrix(
                 mScaleX, 0, 0, 0,

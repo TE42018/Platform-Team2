@@ -16,10 +16,10 @@ namespace SugarAdventure
         Key_green = 3,
         //Lock_green = 5,
         Slime_walk1 = 4,
+        Snail_walk1 = 5,
     }
     public class EntityManager
     {
-        private LevelNumber levelNum;
         private List<Texture2D> textures;
         public List<Texture2D> Textures
         {
@@ -28,8 +28,7 @@ namespace SugarAdventure
                 return textures;
             }
         }
-
-        private List<IEntity> originalEntities;
+        
         private List<IEntity> entities;
         public List<IEntity> Entities
         {
@@ -42,7 +41,6 @@ namespace SugarAdventure
         public EntityManager()
         {
             entities = new List<IEntity>();
-            originalEntities = new List<IEntity>();
             textures = new List<Texture2D>();
             
         }
@@ -54,18 +52,13 @@ namespace SugarAdventure
             textures.Add(SugarGame.contentManager.Load<Texture2D>(@".\Platformer_assets\Items\coinGold"));
             textures.Add(SugarGame.contentManager.Load<Texture2D>(@".\Platformer_assets\Items\keyGreen"));
             textures.Add(SugarGame.contentManager.Load<Texture2D>(@".\Platformer_assets\Enemies\slimeWalk1"));
-            //textures.Add(SugarGame.contentManager.Load<Texture2D>(@".\Platformer assets (1330 assets)\Base pack (360 assets)\PNG\Tiles\lock_green"));
+            textures.Add(SugarGame.contentManager.Load<Texture2D>(@".\Platformer_assets\Enemies\snailWalk1"));
         }
 
-        public void SetLevelNumber(LevelNumber num)
-        {
-            levelNum = num;
-        }
 
         public void Add(IEntity item)
         {
             entities.Add(item);
-            originalEntities.Add(item);
         }
 
         public IPickupable GetEntity(string entityName)
@@ -89,33 +82,25 @@ namespace SugarAdventure
         {
             for (int i = entities.Count; i > 0; i--)
             {
-                IPickupable item = entities[i - 1] as IPickupable;
 
-                if (item == null || (item as IEntity).LevelNumber == (int)levelNum)
-                    continue;
-
-                if (item.Hitbox.Intersects(player.Hitbox))
+                if (entities[i - 1] is IPickupable item)
                 {
-                    player.Pickup(item);
-                    entities.Remove(item as IEntity);
-                    originalEntities.Add(item as IEntity);
-                }
-            }
-
-            for (int i = entities.Count; i > 0; i--)
-            {
-                IInteractable interactable = entities[i - 1] as IInteractable;
-
-                if (interactable == null || (interactable as IEntity).LevelNumber == (int)levelNum)
-                    continue;
-
-                if (interactable.Hitbox.Intersects(player.Hitbox))
-                {
-                    if (player.HasItem(interactable.Key))
+                    if (item.Hitbox.Intersects(player.Hitbox))
                     {
-                        entities.Remove(interactable as IEntity);
+                        player.Pickup(item);
+                        entities.Remove(item as IEntity);
                     }
                 }
+                else if(entities[i - 1] is IEnemy enemy)
+                {
+                    enemy.Update(gameTime, player.Level);
+                    if (enemy.Hitbox.Intersects(player.Hitbox))
+                    {
+                        player.Damage(enemy.AttackDamage);
+                    }
+                }
+
+
             }
         }
 
@@ -123,8 +108,7 @@ namespace SugarAdventure
         {
             foreach(IEntity e in entities)
             {
-                if(e.LevelNumber == (int)levelNum)
-                    e.Draw(spriteBatch);
+                e.Draw(spriteBatch);
             }
         }
     }

@@ -15,7 +15,16 @@ namespace SugarAdventure
     {
         private TmxMap levelData;
         private TmxTileset[] tileSets;
-        
+
+
+        private Vector2 startPosition;
+        public Vector2 StartPosition
+        {
+            get
+            {
+                return startPosition;
+            }
+        }
 
         private List<Layer> layers = new List<Layer>();
         public List<Layer> Layers
@@ -44,7 +53,9 @@ namespace SugarAdventure
             //Console.WriteLine(levelData.ImageLayers);
             width = levelData.Width * levelData.TileWidth; 
             height = levelData.Height * levelData.TileHeight; // size in pixels    (Maybe get in layer instead)
-            
+
+            startPosition = new Vector2(70 * 100, height / 2);
+
             //Populate array of tilesets
             int tileSetCount = levelData.Tilesets.Count;
             tileSets = new TmxTileset[tileSetCount];

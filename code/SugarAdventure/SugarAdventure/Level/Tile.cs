@@ -100,23 +100,40 @@ namespace SugarAdventure
                     case "lock_green":
                         hitbox = new Rectangle(pos.ToPoint(), new Point(texture.Width, texture.Height));
                         break;
+                    case "portal":
+                        hitbox = new Rectangle(pos.ToPoint(), new Point(texture.Width, texture.Height));
+                        break;
+                    case "spikes":
+                        hitbox = new Rectangle(pos.ToPoint() + new Point(0, texture.Height/2), new Point(texture.Width, texture.Height/2));
+                        break;
 
 
                     case "coin_bronze":
                         texture = null;
-                        SugarGame.entityManager.Add(new Coin(pos, "bronze", _levelNumber));
+                        SugarGame.entityManager.Add(new Coin(pos, "bronze"));
                         break;
                     case "coin_silver":
                         texture = null;
-                        SugarGame.entityManager.Add(new Coin(pos, "silver", _levelNumber));
+                        SugarGame.entityManager.Add(new Coin(pos, "silver"));
                         break;
                     case "coin_gold":
                         texture = null;
-                        SugarGame.entityManager.Add(new Coin(pos, "gold", _levelNumber));
+                        SugarGame.entityManager.Add(new Coin(pos, "gold"));
                         break;
                     case "key_green":
                         texture = null;
-                        SugarGame.entityManager.Add(new Key(pos, "green", _levelNumber));
+                        SugarGame.entityManager.Add(new Key(pos, "green"));
+                        break;
+
+
+
+                    case "enemy_slime":
+                        texture = null;
+                        SugarGame.entityManager.Add(new Enemy(pos, "slime"));
+                        break;
+                    case "enemy_snail":
+                        texture = null;
+                        SugarGame.entityManager.Add(new Enemy(pos, "snail"));
                         break;
                 }
             }

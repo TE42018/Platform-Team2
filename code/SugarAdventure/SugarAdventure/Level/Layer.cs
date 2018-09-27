@@ -177,7 +177,7 @@ namespace SugarAdventure
         }
 
         private Texture2D GetTilesheet(TmxTileset tileset, out Texture2D _texture)
-        {
+        { 
             string tilesheetImageSource = tileset.Image.Source.Split('.')[0];
 
             _texture = SugarGame.contentManager.Load<Texture2D>(@"." + tilesheetImageSource);
@@ -225,8 +225,11 @@ namespace SugarAdventure
                     
                     properties = tileTileset.Tiles[tile.Gid - tileTileset.FirstGid].Properties;
                     //Console.WriteLine(properties);
-                    Texture2D tileTilesheet = GetTilesheet(tileTileset, out tileTilesheet);
-                    tileTexture = GetTileTexture(tile.Gid, tileTileset, tileTilesheet, out tileTexture);
+                    if (tileTileset.Image.Source != null)
+                    {
+                        Texture2D tileTilesheet = GetTilesheet(tileTileset, out tileTilesheet);
+                        tileTexture = GetTileTexture(tile.Gid, tileTileset, tileTilesheet, out tileTexture);
+                    }
                 }
 
                 Tiles[tile.X, tile.Y] = new Tile(tilePos, tileTexture, tileWidth, properties, levelNumber);

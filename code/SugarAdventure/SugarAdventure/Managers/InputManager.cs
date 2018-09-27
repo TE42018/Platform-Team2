@@ -20,6 +20,7 @@ namespace SugarAdventure
         Right,
         Jump,
         Enter,
+        Activate,
         Back,
         None
     }
@@ -35,6 +36,7 @@ namespace SugarAdventure
             { Actions.Jump, Keys.Space },
             { Actions.Enter, Keys.Enter },
             { Actions.Back, Keys.Escape },
+            { Actions.Activate, Keys.E },
         };
         
         private Dictionary<Actions, Buttons> gamepadActionMapping = new Dictionary<Actions, Buttons>()
@@ -45,6 +47,7 @@ namespace SugarAdventure
             { Actions.Right, Buttons.LeftThumbstickRight },
             { Actions.Jump, Buttons.A },
             { Actions.Enter, Buttons.A },
+            { Actions.Activate, Buttons.Y },
             { Actions.Back, Buttons.B },
         };
 

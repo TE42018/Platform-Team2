@@ -18,7 +18,7 @@ namespace SugarAdventure
         public MainGameScreen()
         {
             if(cam == null)
-                cam = new Camera(Vector2.Zero, SugarGame.graphics.GraphicsDevice.Viewport.Width, SugarGame.graphics.GraphicsDevice.Viewport.Height);
+                cam = new Camera(Vector2.Zero, SugarGame.graphics.GraphicsDevice.Viewport.Width, SugarGame.graphics.GraphicsDevice.Viewport.Height, 0.6f);
         }
 
         public override void Initialize()
@@ -28,17 +28,22 @@ namespace SugarAdventure
 
         public override void LoadContent(GraphicsDevice pGraphicsDevice)
         {
-            level = SugarGame.levelManager.GetLevel(LevelNumber.level2);
+            level = SugarGame.levelManager.LoadLevel(LevelNumber.level3);
             
             //SugarGame.entityManager.LoadContent();
 
-            cam.SetBoundingLevel(level);
+            Camera.SetBoundingLevel(level);
 
-            player = new Player(new Vector2(70 * 1, level.GetLayer("Ground").LayerHeight / 2 + 70 * 4), level);
+            player = new Player(level, 4);
             player.LoadContent();
             player.SetBoundingLevel(level);
 
             base.LoadContent(pGraphicsDevice);
+        }
+
+        public void Exit()
+        {
+            quit = true;
         }
 
         public override void Update(GameTime pGameTime)
@@ -52,7 +57,7 @@ namespace SugarAdventure
             {
                 player.ClimbUp();
             }
-            if (SugarGame.inputManager.IsPressed(Actions.Down))
+            else if (SugarGame.inputManager.IsPressed(Actions.Down))
             {
                 player.ClimbDown();
             }
@@ -64,13 +69,18 @@ namespace SugarAdventure
             {
                 player.MoveLeft();
             }
-            if (SugarGame.inputManager.IsPressed(Actions.Right))
+            else if (SugarGame.inputManager.IsPressed(Actions.Right))
             {
                 player.MoveRight();
             }
             if (!SugarGame.inputManager.IsPressed(Actions.Right) && !SugarGame.inputManager.IsPressed(Actions.Left))
             {
                 player.Stop();
+            }
+
+            if (SugarGame.inputManager.IsTriggered(Actions.Activate))
+            {
+                player.CurrentAction = Actions.Activate;
             }
             if (SugarGame.inputManager.IsTriggered(Actions.Jump))
             {
@@ -101,11 +111,15 @@ namespace SugarAdventure
 
             if (player != null)
             {
-                level.Draw(pSpriteBatch);
+                player.Level.Draw(pSpriteBatch);
                 player.Draw(pSpriteBatch);
                 SugarGame.entityManager.Draw(pSpriteBatch);
             }
             base.Draw(pSpriteBatch);
+            pSpriteBatch.End();
+
+            pSpriteBatch.Begin();
+                //Draw UI elements
             pSpriteBatch.End();
         }
     }

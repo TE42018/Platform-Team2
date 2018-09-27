@@ -13,9 +13,9 @@ namespace SugarAdventure
     {
         private SoundEffect jumpEffect;
         private HashSet<IPickupable> inventory;
-        private Level level;
         private Texture2D texture;
         private Vector2 originalPosition;
+        private float damageCounter = 0;
         private Rectangle bounds;
         private Rectangle hitbox;
         public Rectangle Hitbox
@@ -23,6 +23,14 @@ namespace SugarAdventure
             get
             {
                 return hitbox;
+            }
+        }
+        private Level level;
+        public Level Level
+        {
+            get
+            {
+                return level;
             }
         }
 
@@ -38,18 +46,21 @@ namespace SugarAdventure
         //bool isOnGround;
         bool canClimb;
 
-
+        public int Health { get; set; }
+        public int MaxHealth { get; set; }
         public Actions CurrentAction { get; set; }
 
-        public Player(Vector2 _position, Level _level)
+        public Player(Level _level, int _maxHealth)
         {
-            position = _position;
+            level = _level;
+            MaxHealth = _maxHealth;
+            Health = MaxHealth;
+            position = level.StartPosition;
             originalPosition = position;
             velocity = Vector2.Zero;
             gravity = new Vector2(0, 9.81f*300);
             inventory = new HashSet<IPickupable>();
             //hasJumped = true;
-            level = _level;
             tilesToCheck = level.GetLayer("Ground").GetTiles();
         }
 
@@ -62,6 +73,7 @@ namespace SugarAdventure
 
         public void Update(GameTime gameTime)
         {
+            damageCounter -= (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             CollideX(gameTime);
             CollideY(gameTime);
@@ -70,6 +82,7 @@ namespace SugarAdventure
 
             if (!isClimbing)
                 velocity += gravity * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            CurrentAction = Actions.None;
         }
 
         public void Pickup(IPickupable item)
@@ -105,6 +118,27 @@ namespace SugarAdventure
         public void RemoveItem(IPickupable item)
         {
             inventory.Remove(item);
+        }
+
+        public void Damage(int attackDamage)
+        {
+            if (damageCounter <= 0)
+            {
+                Health -= attackDamage;
+                if (Health <= 0)
+                {
+                    Kill();
+                }
+                damageCounter = 1;
+                Console.WriteLine(Health);
+                
+            }
+        }
+
+        public void Kill()
+        {
+            SugarGame.Instance.GSM.Gamescreens.Peek().Quit = true;
+            SugarGame.Instance.Components.Add(new MenuComponent(SugarGame.Instance));
         }
 
         public void Reset()
@@ -275,10 +309,22 @@ namespace SugarAdventure
                                 }
                             }
                         }
+                        else if(tileType == "spikes")
+                        {
+                            Kill();
+                        }
 
                         if (tileType == "ladder")
                         {
                             canClimb = true;
+                        }
+                        if(tileType == "portal" && CurrentAction == Actions.Activate)
+                        {
+                            level = SugarGame.levelManager.LoadNextLevel();
+                            SetBoundingLevel(level);
+                            Camera.SetBoundingLevel(level);
+                            tilesToCheck = level.GetLayer("Ground").GetTiles();
+                            position = level.StartPosition;
                         }
                     }
                 }

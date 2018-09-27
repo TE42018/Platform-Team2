@@ -1,0 +1,2628 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" tiledversion="1.1.6" orientation="orthogonal" renderorder="right-down" width="112" height="48" tilewidth="70" tileheight="70" infinite="0" nextobjectid="707">
+ <tileset firstgid="1" name="candy" tilewidth="70" tileheight="70" tilecount="98" columns="14">
+  <image source="/Platformer_assets/Spritesheets/Tiles/candy.png" width="980" height="490"/>
+  <tile id="0">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="1" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="2" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="3" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="4" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="5" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="6" type="Slope_down">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Slope_down"/>
+   </properties>
+  </tile>
+  <tile id="7" type="Slope_up">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Slope_up"/>
+   </properties>
+  </tile>
+  <tile id="8" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="9" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="10" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="11" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="15" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="16" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="17" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="18" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="19" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="20" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="21" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="22" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="23" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="24" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="25" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="26">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="27">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="28">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="29" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="30" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="31" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="32" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="33" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="34" type="Slope_down">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Slope_down"/>
+   </properties>
+  </tile>
+  <tile id="35" type="Slope_up">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Slope_up"/>
+   </properties>
+  </tile>
+  <tile id="36" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="37" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="38" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="39" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="40">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="41">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="42">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="43" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="44" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="45" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="46" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="47" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="48" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="49" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="50" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="51" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="52" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="53" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="54">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="55">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="56">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="57">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="58">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="59">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="60">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="61">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="62">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="63">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="64">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="65">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="66">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="67">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="68">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="69">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="70">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="71">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="72">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="73">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="74">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="75">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="76">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="77">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="78">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="79">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="80">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="81">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="82">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="83">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="84">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="85">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="86">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="87">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="88">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="89">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="90">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="91">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="92">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="93">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="94">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="95">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="96">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="97">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="99" name="items" tilewidth="70" tileheight="70" tilecount="54" columns="18">
+  <image source="/Platformer_assets/Spritesheets/Entities/items.png" width="1260" height="210"/>
+  <tile id="0">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="1" type="Button_blue">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Button_blue"/>
+   </properties>
+  </tile>
+  <tile id="2" type="Button_green">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Button_green"/>
+   </properties>
+  </tile>
+  <tile id="3" type="Button_yellow">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Button_yellow"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="5" type="Coin_silver">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Coin_silver"/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="11" type="Key_blue">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Key_blue"/>
+   </properties>
+  </tile>
+  <tile id="12" type="Key_yellow">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Key_yellow"/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="15">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="16">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="17">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="18">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="19" type="Button_blue">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Button_blue"/>
+   </properties>
+  </tile>
+  <tile id="20" type="Button_red">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Button_red"/>
+   </properties>
+  </tile>
+  <tile id="21" type="Button_yellow">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Button_yellow"/>
+   </properties>
+  </tile>
+  <tile id="22" type="Coin_bronze">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Coin_bronze"/>
+   </properties>
+  </tile>
+  <tile id="23">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="24">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="25">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="26">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="27">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="28">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="29" type="Key_green">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Key_green"/>
+   </properties>
+  </tile>
+  <tile id="30">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="31">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="32">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Spikes"/>
+   </properties>
+  </tile>
+  <tile id="33">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="34">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="35">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="36">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="37" type="Button_green">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Button_green"/>
+   </properties>
+  </tile>
+  <tile id="38" type="Button_red">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Button_red"/>
+   </properties>
+  </tile>
+  <tile id="39">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="40" type="Coin_gold">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Coin_gold"/>
+   </properties>
+  </tile>
+  <tile id="41">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="42">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="43">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="44">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="45">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="46">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="47" type="Key_red">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Key_red"/>
+   </properties>
+  </tile>
+  <tile id="48">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="49">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="50">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="51">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="52">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="53">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="153" name="normal" tilewidth="70" tileheight="70" tilecount="156" columns="12">
+  <image source="/Platformer_assets/Spritesheets/Tiles/normal.png" width="840" height="910"/>
+  <tile id="0" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="2" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="3" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="4" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="5" type="Slope_down">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="8" type="Slope_down">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="9" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="10" type="Slope_down">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="11" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="12" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="14" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="15">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="16" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="17" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="18">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="19">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Ladder"/>
+   </properties>
+  </tile>
+  <tile id="20" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="21">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="22" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="23" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="24" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="25">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="26" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="27" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="28" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="29" type="Slope_up">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="30" type="Slope_down">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="31">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Ladder"/>
+   </properties>
+  </tile>
+  <tile id="32" type="Slope_up">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="33">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="34" type="Slope_up">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="35" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="36" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="37">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="38">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="39" type="Slope_down">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="40">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="41" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="42" type="Slope_up">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="43">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="44" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="45">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="46" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="47" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="48" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="49" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="50">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="51" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="52">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="53" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="54">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Lock_yellow"/>
+   </properties>
+  </tile>
+  <tile id="55" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="56" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="57">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="58" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="59" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="60" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="61" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="62">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="63" type="Slope_up">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="64">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="65" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="66">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Lock_red"/>
+   </properties>
+  </tile>
+  <tile id="67" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="68" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="69">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="70" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="71" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="72" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="73" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="74">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="75">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="76">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="77" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="78" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="79" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="80" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="81">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="82" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="83" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="84" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="85" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="86" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="87">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="88" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="89" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="90">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Lock_blue"/>
+   </properties>
+  </tile>
+  <tile id="91" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="92" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="93" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="94" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="95" type="Slope_down">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="96" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="97">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Lock_green"/>
+   </properties>
+  </tile>
+  <tile id="98" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="99">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="100" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="101" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="102">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="103" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="104" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="105" type="Slope_up">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="106" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="107" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="108" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="109">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="110" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="111">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="112" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="113" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="114">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="115" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="116" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="117" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="118" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="119" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="120" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="121" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="122" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="123" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="124">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="125" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="126" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="127" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="128" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="129" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="130" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="131">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="132" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="133" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="134" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="135" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="136" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="137" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="138">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="139" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="140" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="141" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="142" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="143">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="144" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="145" type="Platform">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Platform"/>
+   </properties>
+  </tile>
+  <tile id="146" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="147" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="148" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="149">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="150">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="151" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="152" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="153" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="154" type="Block">
+   <properties>
+    <property name="Collideable" type="bool" value="true"/>
+    <property name="Type" value="Block"/>
+   </properties>
+  </tile>
+  <tile id="155">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="309" name="building" tilewidth="70" tileheight="70" tilecount="98" columns="14">
+  <image source="/Platformer_assets/Spritesheets/Tiles/building.png" width="980" height="490"/>
+  <tile id="0">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="10">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="15">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="16">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="17">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="18">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="19">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="20">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="21">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="22">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="23">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="24">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="25">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="26">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="27">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="28">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="29">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="30">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="31">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="32">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="33">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="34">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="35">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="36">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="37">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="38">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="39">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="40">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="41">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="42">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="43">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="44">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="45">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="46">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="47">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="48">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="49">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="50">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="51">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="52">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="53">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="54">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="55">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="56">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="57">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="58">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="59">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="60">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="61">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="62">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="63">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="64">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="65">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="66">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="67">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="68">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="69">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="70">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="71">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="72">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="73">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="74">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="75">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="76">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="77">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="78">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="79">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="80">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="81">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="82">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="83">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="84">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="85">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="86">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="87">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="88">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="89">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="90">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="91">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="92">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="93">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="94">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="95">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="96">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value=""/>
+   </properties>
+  </tile>
+  <tile id="97">
+   <properties>
+    <property name="Collideable" type="bool" value="false"/>
+    <property name="Type" value="Portal"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="407" name="Enemies" tilewidth="72" tileheight="36" tilecount="3" columns="0">
+  <grid orientation="orthogonal" width="1" height="1"/>
+  <tile id="0">
+   <properties>
+    <property name="Type" value="Enemy_fly"/>
+   </properties>
+   <image width="72" height="36" source="/Platformer_assets/Single/Enemies/flyFly1.png"/>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="Type" value="Enemy_slime"/>
+   </properties>
+   <image width="50" height="28" source="/Platformer_assets/Single/Enemies/slimeWalk1.png"/>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="Type" value="Enemy_snail"/>
+   </properties>
+   <image width="54" height="31" source="/Platformer_assets/Single/Enemies/snailWalk1.png"/>
+  </tile>
+ </tileset>
+ <layer name="Back" width="112" height="48">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,58,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,65,0,0,0,0,0,0,0,0,0,0,0,217,0,88,89,86,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,357,358,358,358,358,358,358,358,358,358,358,358,359,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,61,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,351,352,352,352,352,352,352,352,352,353,371,372,372,348,372,372,348,372,372,348,372,372,373,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,86,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,365,366,366,366,366,366,366,366,366,367,371,372,372,372,372,372,372,372,372,372,372,372,373,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,309,310,310,310,310,310,310,311,0,0,315,346,316,388,316,316,316,388,316,316,317,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,309,310,310,360,310,310,310,311,0,0,315,316,316,316,316,316,316,316,316,316,317,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,17,17,17,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,309,310,310,310,310,310,318,311,0,0,315,316,316,316,316,316,316,316,316,346,317,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,67,66,0,0,0,0,0,0,0,75,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,309,360,310,310,310,310,310,311,0,0,315,388,316,316,316,316,316,316,316,316,317,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,80,80,0,0,0,42,41,0,0,74,0,0,27,28,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,337,338,338,338,338,338,338,339,0,0,343,344,344,344,344,344,344,344,344,344,345,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,45,45,0,0,0,0,0,0,0,0,0,0,45,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,45,45,0,0,45,45,45,45,45,45,45,45,45,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,45,45,0,0,45,45,45,45,45,45,45,45,45,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,45,45,0,0,45,45,45,45,45,45,45,45,45,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,45,45,45,45,45,45,45,45,45,45,45,45,45,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,45,45,45,45,45,45,45,45,45,45,45,45,45,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,45,45,0,0,45,45,45,45,45,45,45,45,45,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer name="Back_detail" width="112" height="48">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,395,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,381,381,381,381,381,381,381,381,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,375,0,375,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,347,0,347,0,321,0,0,0,0,0,389,0,389,0,347,0,319,400,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,335,0,0,0,0,0,403,0,403,0,0,0,335,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <layer name="Ground" width="112" height="48">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,378,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,104,0,0,0,0,0,0,0,0,0,0,392,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,392,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,409,0,0,0,0,406,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,184,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,32,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,184,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,184,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,184,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,184,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,184,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,184,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,184,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,184,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,184,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,184,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,184,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,184,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,184,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,184,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,4,4,4,7,0,0,0,0,0,0,0,0,0,0,0,0,184,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10,23,24,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,22,17,17,17,21,7,0,0,0,0,0,0,0,0,0,0,0,184,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10,24,0,0,139,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,22,17,17,55,56,55,21,7,0,0,0,0,0,0,0,0,0,0,184,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+377,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10,24,0,0,0,0,0,0,0,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,4,22,17,17,17,4,4,4,17,21,7,0,0,0,0,0,0,0,0,0,184,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+391,0,0,0,0,0,0,0,0,0,121,0,0,0,0,0,0,0,0,0,3,4,291,291,291,291,291,291,291,291,291,291,291,291,4,4,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,22,17,17,17,17,17,17,17,17,17,17,21,7,0,0,0,0,0,0,408,0,184,408,0,0,0,0,0,0,0,0,0,121,121,0,0,0,0,0,0,0,0,0,0,0,104,
+391,0,0,0,0,0,0,121,0,0,90,0,0,0,0,0,0,0,3,4,17,17,160,160,160,160,160,160,160,160,160,160,160,160,160,17,17,17,17,4,0,0,4,4,4,4,4,4,4,4,4,4,250,4,4,4,4,4,4,4,4,4,4,4,4,22,17,17,17,17,17,17,17,17,17,17,17,17,21,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,
+405,0,0,0,0,0,0,90,0,0,0,0,0,0,0,0,3,4,17,17,17,17,160,160,160,160,160,160,160,160,160,160,160,160,160,160,17,17,17,17,0,0,17,17,0,0,0,0,0,0,0,0,184,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,
+4,4,4,4,4,4,255,255,255,255,255,255,255,4,4,4,17,17,17,17,17,17,17,160,160,160,160,160,160,160,160,160,160,160,160,160,17,17,17,17,0,0,17,17,0,0,0,0,0,0,0,0,184,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,
+17,17,17,17,17,17,17,196,196,196,196,196,196,17,17,17,17,17,17,17,17,17,17,17,160,160,160,160,160,160,160,160,160,160,160,160,17,17,17,17,0,0,17,17,0,139,139,139,139,139,128,0,184,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,
+17,17,17,17,17,17,17,196,196,196,196,196,196,17,17,17,17,17,17,17,17,17,17,17,17,17,17,160,160,160,160,160,160,160,160,17,17,17,17,17,0,0,0,0,0,104,104,104,104,104,104,0,184,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,
+17,17,17,17,17,17,17,17,17,196,196,196,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,0,0,0,0,0,121,121,121,121,121,121,0,184,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,
+17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,131,131,17,17,0,0,0,0,0,0,408,0,184,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,
+45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,
+45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,
+45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,45,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+</map>

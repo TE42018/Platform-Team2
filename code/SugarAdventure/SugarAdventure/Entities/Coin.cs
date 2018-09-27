@@ -14,15 +14,13 @@ namespace SugarAdventure
         public Vector2 Position { get; set; }
         public Rectangle Hitbox { get; set; }
         public Texture2D Texture { get; set; }
-        public int LevelNumber { get; set; }
 
         public int Value { get; set; }
         public Point Size { get; set; }
 
-        public Coin(Vector2 _pos, string _type, int _levelNumber)
+        public Coin(Vector2 _pos, string _type)
         {
             Type = "coin_" + _type;
-            LevelNumber = _levelNumber;
             Position = _pos;
             Size = new Point(47, 47);
 

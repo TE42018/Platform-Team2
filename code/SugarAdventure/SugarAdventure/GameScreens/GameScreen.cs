@@ -28,6 +28,10 @@ namespace SugarAdventure
             {
                 return quit;
             }
+            set
+            {
+                quit = value;
+            }
         }
 
         public virtual void Initialize()
