@@ -45,7 +45,7 @@ namespace SugarAdventure
             graphics = new GraphicsDeviceManager(this);
             inputManager = new InputManager();
             levelManager = new LevelManager();
-            levelManager.SetSource(@"data\levels\");
+            levelManager.SetSource(@"data\");
             gsm = new GameScreenManager();
 
             gsm.Push(new StartupGameScreen());
