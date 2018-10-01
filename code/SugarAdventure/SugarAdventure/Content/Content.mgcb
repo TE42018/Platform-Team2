@@ -241,6 +241,7 @@
 /processorParam:TextureFormat=Color
 /build:Platformer_assets/Aliens/alienPink.png
 
+<<<<<<< Updated upstream
 #begin hud_heartFull.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -517,6 +518,8 @@
 /processorParam:TextureFormat=Color
 /build:hud_9.png
 
+=======
+>>>>>>> Stashed changes
 #begin Platformer_assets/Enemies/snailWalk1.png
 /importer:TextureImporter
 /processor:TextureProcessor
