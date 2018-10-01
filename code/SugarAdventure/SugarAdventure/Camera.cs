@@ -53,7 +53,6 @@ namespace SugarAdventure
             pos = _pos;
             ZoomFactor = _zoomFactor;
 
-            Console.WriteLine($"{_viewportWidth}, {_viewportHeight}");
 
             originalHeight = (int)(_viewportHeight / _zoomFactor);
             originalWidth = (int)(_viewportWidth / _zoomFactor);
@@ -61,7 +60,8 @@ namespace SugarAdventure
             originalHeight = (int)(480 / _zoomFactor);
             originalWidth = (int)(800 / _zoomFactor);
 
-            
+
+            Console.WriteLine($"{originalWidth}, {originalHeight}");
             // Console.WriteLine($"{originalWidth}, {originalHeight}");
 
             ViewportWidth = (int)(_viewportWidth / ZoomFactor);
@@ -69,8 +69,11 @@ namespace SugarAdventure
 
             //Console.WriteLine($"{ViewportWidth}, {ViewportHeight}");
 
-            mScaleX = (float)SugarGame.graphics.PreferredBackBufferWidth / ViewportWidth;
-            mScaleY = (float)SugarGame.graphics.PreferredBackBufferHeight / ViewportHeight;
+            mScaleX = (float)SugarGame.graphics.PreferredBackBufferWidth / originalWidth;
+            mScaleY = (float)SugarGame.graphics.PreferredBackBufferHeight / originalHeight;
+            //mScaleX = ZoomFactor;
+            //mScaleY = ZoomFactor;
+            Console.WriteLine($"{mScaleX}, {mScaleY}");
         }
 
         public static void SetBoundingLevel(Level _boundingLevel)

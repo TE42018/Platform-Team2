@@ -11,7 +11,11 @@ namespace SugarAdventure
 {
     public class Player
     {
-        
+        AnimationManager animator;
+        Animation standAnim;
+        Animation walkAnim;
+        Animation jumpAnim;
+        Animation climbAnim;
 
         private SoundEffect jumpEffect;
         private HashSet<IPickupable> inventory;
@@ -68,7 +72,12 @@ namespace SugarAdventure
 
         public void LoadContent()
         {
+            standAnim = new Animation(SugarGame.contentManager.Load<Texture2D>("standPink"), 1);
+            walkAnim = new Animation(SugarGame.contentManager.Load<Texture2D>("walkPink"), 10);
+            animator = new AnimationManager(standAnim);
+
             texture = SugarGame.contentManager.Load<Texture2D>(@".\Platformer_assets\Aliens\alienPink");
+            texture = standAnim.Texture;
             jumpEffect = SugarGame.contentManager.Load<SoundEffect>("jump");
             hitbox = new Rectangle(position.ToPoint(), new Point(texture.Width, texture.Height));
         }
@@ -76,6 +85,13 @@ namespace SugarAdventure
         public void Update(GameTime gameTime)
         {
             damageCounter -= (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            switch (CurrentAction)
+            {
+                case Actions.Right:
+                    velocity.X = 300;
+                    break;
+            }
 
             CollideX(gameTime);
             CollideY(gameTime);
@@ -368,16 +384,19 @@ namespace SugarAdventure
 
         public void MoveLeft()
         {
+            CurrentAction = Actions.Left;
             velocity.X = -300;
         }
 
         public void MoveRight()
         {
+            CurrentAction = Actions.Right;
             velocity.X = 300;
         }
 
         public void Stop()
         {
+            CurrentAction = Actions.None;
             velocity.X = 0;
         }
 

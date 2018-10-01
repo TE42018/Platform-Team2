@@ -49,6 +49,8 @@
     <Compile Include="GameScreens\MainGameScreen.cs" />
     <Compile Include="GameScreens\StartupGameScreen.cs" />
     <Compile Include="Interfaces\IEnemy.cs" />
+    <Compile Include="Animation.cs" />
+    <Compile Include="Managers\AnimationManager.cs" />
     <Compile Include="Managers\GameScreenManager.cs" />
     <Compile Include="Interfaces\IEntity.cs" />
     <Compile Include="Interfaces\IInteractable.cs" />
