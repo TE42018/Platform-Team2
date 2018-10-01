@@ -54,6 +54,7 @@ namespace SugarAdventure
 
         public int Health { get; set; }
         public int MaxHealth { get; set; }
+        public int Money { get; set; }
         public Actions CurrentAction { get; set; }
 
         public Player(Level _level, int _maxHealth)
@@ -73,8 +74,13 @@ namespace SugarAdventure
         public void LoadContent()
         {
             standAnim = new Animation(SugarGame.contentManager.Load<Texture2D>("standPink"), 1);
-            walkAnim = new Animation(SugarGame.contentManager.Load<Texture2D>("walkPink"), 10);
             animator = new AnimationManager(standAnim);
+
+            walkAnim = new Animation(SugarGame.contentManager.Load<Texture2D>("walkPink"), 10);
+            walkAnim.FrameSpeed = 0.04f;
+
+            climbAnim = new Animation(SugarGame.contentManager.Load<Texture2D>("climbPink"), 2);
+            jumpAnim = new Animation(SugarGame.contentManager.Load<Texture2D>("alienPink_jump"), 1);
 
             texture = SugarGame.contentManager.Load<Texture2D>(@".\Platformer_assets\Aliens\alienPink");
             texture = standAnim.Texture;
@@ -86,17 +92,54 @@ namespace SugarAdventure
         {
             damageCounter -= (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            switch (CurrentAction)
+
+
+
+            if (isClimbing)
             {
-                case Actions.Right:
-                    velocity.X = 300;
-                    break;
+                animator.Play(climbAnim);
+                switch (CurrentAction)
+                {
+                    case Actions.Up: velocity.Y = -300f; animator.Update(gameTime); break;
+                    case Actions.Down: velocity.Y = 300f; animator.Update(gameTime); break;
+                    default: velocity.Y = 0; break;
+                }
             }
+            else if (!canJump)
+            {
+                animator.Play(jumpAnim);
+            }
+            else
+            {
+                animator.Play(walkAnim);
+                switch (CurrentAction)
+                {
+                    case Actions.Left: velocity.X = -300f; animator.Update(gameTime); break;
+                    case Actions.Right: velocity.X = 300f; animator.Update(gameTime); break;
+                    default: velocity.X = 0f; animator.Play(standAnim); animator.Stop(); break;
+                }
+            }
+
+            //switch (CurrentAction)
+            //{
+            //    case Actions.Right:
+
+            //        velocity.X = 300; animator.Play(walkAnim); animator.Update(gameTime); break;
+            //    case Actions.Left:
+            //        velocity.X = -300; animator.Play(walkAnim); animator.Update(gameTime); break;
+            //    default: animator.Play(standAnim);break;
+            //}
+
+            //hitbox.Size = new Point(standAnim.Texture.Width, walkAnim.Texture.Height);
 
             CollideX(gameTime);
             CollideY(gameTime);
 
             position = Vector2.Clamp(position, Vector2.Zero, new Vector2(bounds.Width, bounds.Height));
+            position = new Vector2((float)Math.Floor(position.X), (float)Math.Floor(position.Y));
+            animator.Position = position;
+
+            //Console.WriteLine($"{position}, {animator.Position}");
 
             if (!isClimbing)
                 velocity += gravity * (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -106,6 +149,11 @@ namespace SugarAdventure
         public void Pickup(IPickupable item)
         {
             inventory.Add(item);
+            if(item is Coin)
+            {
+                Money += (item as Coin).Value;
+            }
+            Console.WriteLine(item.GetType());
         }
 
         public bool HasItem(IPickupable item)
@@ -396,7 +444,7 @@ namespace SugarAdventure
 
         public void Stop()
         {
-            CurrentAction = Actions.None;
+            //CurrentAction = Actions.None;
             velocity.X = 0;
         }
 
@@ -405,26 +453,29 @@ namespace SugarAdventure
             if (canClimb)
             {
                 isClimbing = true;
+                CurrentAction = Actions.Up;
                 //Console.WriteLine("Climbing up");
-                velocity.Y = -300;
+                //velocity.Y = -300;
             }
         }
         public void ClimbDown()
         {
             if (isClimbing)
             {
-                velocity.Y = 300;
+                CurrentAction = Actions.Down;
+                //velocity.Y = 300;
             }
         }
-        public void StopClimbing()
-        {
-            if(isClimbing)
-                velocity.Y = 0;
-        }
+        //public void StopClimbing()
+        //{
+        //    //if(isClimbing)
+        //        //velocity.Y = 0;
+        //}
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, position, Color.White);
+            animator.Draw(spriteBatch, velocity.X < 0);
+            //spriteBatch.Draw(, position, color: Color.White, effects: velocity.X < 0 ? SpriteEffects.FlipHorizontally : SpriteEffects.None);
         }
     }
 }

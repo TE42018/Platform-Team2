@@ -137,7 +137,7 @@ namespace SugarAdventure
             }
             if (!SugarGame.inputManager.IsPressed(Actions.Up) && !SugarGame.inputManager.IsPressed(Actions.Down))
             {
-                player.StopClimbing();
+                //player.StopClimbing();
             }
             if (SugarGame.inputManager.IsPressed(Actions.Left))
             {
@@ -194,8 +194,8 @@ namespace SugarAdventure
 
             pSpriteBatch.Begin();
 
-            DrawHearts(pSpriteBatch, Vector2.One, 7, 10);
-            DrawCoins(pSpriteBatch, new Vector2(SugarGame.graphics.PreferredBackBufferWidth, 0), 1200);
+            DrawHearts(pSpriteBatch, Vector2.One, player.Health, player.MaxHealth);
+            DrawCoins(pSpriteBatch, new Vector2(SugarGame.graphics.PreferredBackBufferWidth, 0), player.Money);
 
             pSpriteBatch.Draw(hud_keyBlue_Disabled, new Rectangle(630, 2, 32, 32), Color.White);
             pSpriteBatch.Draw(hud_keyGreen_Disabled, new Rectangle(600, 2, 32, 32), Color.White);
