@@ -2127,12 +2127,21 @@
  <tileset firstgid="407" name="Enemies" tilewidth="72" tileheight="36" tilecount="3" columns="0">
   <grid orientation="orthogonal" width="1" height="1"/>
   <tile id="0">
+   <properties>
+    <property name="Type" value="Enemy_fly"/>
+   </properties>
    <image width="72" height="36" source="../../assets/Single/Enemies/flyFly1.png"/>
   </tile>
   <tile id="1">
+   <properties>
+    <property name="Type" value="Enemy_slime"/>
+   </properties>
    <image width="50" height="28" source="../../assets/Single/Enemies/slimeWalk1.png"/>
   </tile>
   <tile id="2">
+   <properties>
+    <property name="Type" value="Enemy_snail"/>
+   </properties>
    <image width="54" height="31" source="../../assets/Single/Enemies/snailWalk1.png"/>
   </tile>
  </tileset>
