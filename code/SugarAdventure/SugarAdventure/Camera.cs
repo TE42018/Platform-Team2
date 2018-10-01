@@ -56,28 +56,27 @@ namespace SugarAdventure
 
             originalHeight = (int)(_viewportHeight / _zoomFactor);
             originalWidth = (int)(_viewportWidth / _zoomFactor);
-            //Console.WriteLine($"{originalWidth}, {originalHeight}");
+
             originalHeight = (int)(480 / _zoomFactor);
             originalWidth = (int)(800 / _zoomFactor);
 
+            //ViewportWidth = (int)(_viewportWidth / ZoomFactor);
+            //ViewportHeight = (int)(_viewportHeight / ZoomFactor);
+            ViewportWidth = (int)Math.Ceiling(_viewportWidth / ZoomFactor);
+            ViewportHeight = (int)Math.Ceiling(_viewportHeight / ZoomFactor);
 
-            Console.WriteLine($"{originalWidth}, {originalHeight}");
-            // Console.WriteLine($"{originalWidth}, {originalHeight}");
+            //mScaleX = (float)SugarGame.graphics.PreferredBackBufferWidth / originalWidth;
+            //mScaleY = (float)SugarGame.graphics.PreferredBackBufferHeight / originalHeight;
+            mScaleX = (float)SugarGame.graphics.PreferredBackBufferWidth / ViewportWidth;
+            mScaleY = (float)SugarGame.graphics.PreferredBackBufferHeight / ViewportHeight;
 
-            ViewportWidth = (int)(_viewportWidth / ZoomFactor);
-            ViewportHeight = (int)(_viewportHeight / ZoomFactor);
-
-            //Console.WriteLine($"{ViewportWidth}, {ViewportHeight}");
-
-            mScaleX = (float)SugarGame.graphics.PreferredBackBufferWidth / originalWidth;
-            mScaleY = (float)SugarGame.graphics.PreferredBackBufferHeight / originalHeight;
-            //mScaleX = ZoomFactor;
-            //mScaleY = ZoomFactor;
             Console.WriteLine($"{mScaleX}, {mScaleY}");
         }
 
         public static void SetBoundingLevel(Level _boundingLevel)
         {
+            BoundingLevel = _boundingLevel;
+
             boundWidth = _boundingLevel.GetLayer("Ground").LayerWidth;
             boundHeight = _boundingLevel.GetLayer("Ground").LayerHeight;
 
@@ -95,7 +94,6 @@ namespace SugarAdventure
             ViewportWidth = (int)Math.Ceiling(_viewport.Width/ ZoomFactor);
             ViewportHeight = (int)Math.Ceiling(_viewport.Height/ ZoomFactor);
             bounds = new Rectangle(Point.Zero, new Point(boundWidth - ViewportWidth, boundHeight - ViewportHeight));
-
 
             mScaleX = (float)SugarGame.graphics.PreferredBackBufferWidth / ViewportWidth;
             mScaleY = (float)SugarGame.graphics.PreferredBackBufferHeight / ViewportHeight;
