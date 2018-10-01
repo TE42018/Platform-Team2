@@ -54,7 +54,7 @@ namespace SugarAdventure
             width = levelData.Width * levelData.TileWidth; 
             height = levelData.Height * levelData.TileHeight; // size in pixels    (Maybe get in layer instead)
 
-            startPosition = new Vector2(70 * 100, height / 2);
+            startPosition = new Vector2(70 * 0, height / 2);
 
             //Populate array of tilesets
             int tileSetCount = levelData.Tilesets.Count;

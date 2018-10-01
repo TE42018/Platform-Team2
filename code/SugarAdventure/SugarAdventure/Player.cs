@@ -120,18 +120,6 @@ namespace SugarAdventure
                 }
             }
 
-            //switch (CurrentAction)
-            //{
-            //    case Actions.Right:
-
-            //        velocity.X = 300; animator.Play(walkAnim); animator.Update(gameTime); break;
-            //    case Actions.Left:
-            //        velocity.X = -300; animator.Play(walkAnim); animator.Update(gameTime); break;
-            //    default: animator.Play(standAnim);break;
-            //}
-
-            //hitbox.Size = new Point(standAnim.Texture.Width, walkAnim.Texture.Height);
-
             CollideX(gameTime);
             CollideY(gameTime);
 
@@ -186,6 +174,18 @@ namespace SugarAdventure
             inventory.Remove(item);
         }
 
+        public void RemoveItem(string itemName)
+        {
+            for (int i = inventory.Count - 1; i >= 0; i--)
+            {
+                IEntity item = (inventory.ElementAt(i) as IEntity);
+                if (item.Type == itemName)
+                {
+                    RemoveItem(item as IPickupable);
+                }
+            }
+        }
+
         public void Damage(int attackDamage)
         {
             if (damageCounter <= 0)
@@ -196,8 +196,6 @@ namespace SugarAdventure
                     Kill();
                 }
                 damageCounter = 1;
-                //Console.WriteLine(Health);
-                
             }
         }
 
@@ -305,7 +303,6 @@ namespace SugarAdventure
                     Rectangle tileBox = t.Hitbox;
                     if (hitbox.Intersects(tileBox))
                     {
-                        //Console.WriteLine(tileType);
                         if (tileType == "block" || tileType == "platform")
                         {
                                 if (velocity.Y > 0)
@@ -356,6 +353,7 @@ namespace SugarAdventure
                         {
                             if (HasItem("key_green")){
                                 tilesToCheck[x, y] = new Tile(tilesToCheck[x, y], tilesToCheck[x, y + 1]);
+                                RemoveItem("key_green");
                             }
                             if (velocity.Y > 0)
                             {
@@ -444,7 +442,6 @@ namespace SugarAdventure
 
         public void Stop()
         {
-            //CurrentAction = Actions.None;
             velocity.X = 0;
         }
 
@@ -454,8 +451,6 @@ namespace SugarAdventure
             {
                 isClimbing = true;
                 CurrentAction = Actions.Up;
-                //Console.WriteLine("Climbing up");
-                //velocity.Y = -300;
             }
         }
         public void ClimbDown()
@@ -463,19 +458,12 @@ namespace SugarAdventure
             if (isClimbing)
             {
                 CurrentAction = Actions.Down;
-                //velocity.Y = 300;
             }
         }
-        //public void StopClimbing()
-        //{
-        //    //if(isClimbing)
-        //        //velocity.Y = 0;
-        //}
 
         public void Draw(SpriteBatch spriteBatch)
         {
             animator.Draw(spriteBatch, velocity.X < 0);
-            //spriteBatch.Draw(, position, color: Color.White, effects: velocity.X < 0 ? SpriteEffects.FlipHorizontally : SpriteEffects.None);
         }
     }
 }
