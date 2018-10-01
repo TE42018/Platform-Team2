@@ -11,6 +11,8 @@ namespace SugarAdventure
 {
     public class Player
     {
+        
+
         private SoundEffect jumpEffect;
         private HashSet<IPickupable> inventory;
         private Texture2D texture;

@@ -53,13 +53,21 @@ namespace SugarAdventure
             pos = _pos;
             ZoomFactor = _zoomFactor;
 
+            Console.WriteLine($"{_viewportWidth}, {_viewportHeight}");
+
             originalHeight = (int)(_viewportHeight / _zoomFactor);
             originalWidth = (int)(_viewportWidth / _zoomFactor);
+            //Console.WriteLine($"{originalWidth}, {originalHeight}");
+            originalHeight = (int)(480 / _zoomFactor);
+            originalWidth = (int)(800 / _zoomFactor);
+
+            
+            // Console.WriteLine($"{originalWidth}, {originalHeight}");
 
             ViewportWidth = (int)(_viewportWidth / ZoomFactor);
             ViewportHeight = (int)(_viewportHeight / ZoomFactor);
 
-            Console.WriteLine($"{ViewportWidth}, {ViewportHeight}");
+            //Console.WriteLine($"{ViewportWidth}, {ViewportHeight}");
 
             mScaleX = (float)SugarGame.graphics.PreferredBackBufferWidth / ViewportWidth;
             mScaleY = (float)SugarGame.graphics.PreferredBackBufferHeight / ViewportHeight;
@@ -79,9 +87,10 @@ namespace SugarAdventure
         public void UpdateViewport(Rectangle _viewport)
         {
             ZoomFactor = (float)_viewport.Width / originalWidth;
-            
-            ViewportWidth = (int)Math.Ceiling(_viewport.Width / ZoomFactor);
-            ViewportHeight = (int)Math.Ceiling(_viewport.Height / ZoomFactor);
+            Console.WriteLine(ZoomFactor);
+
+            ViewportWidth = (int)Math.Ceiling(_viewport.Width/ ZoomFactor);
+            ViewportHeight = (int)Math.Ceiling(_viewport.Height/ ZoomFactor);
             bounds = new Rectangle(Point.Zero, new Point(boundWidth - ViewportWidth, boundHeight - ViewportHeight));
 
 
