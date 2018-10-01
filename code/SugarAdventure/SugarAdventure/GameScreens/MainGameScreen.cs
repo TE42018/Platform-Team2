@@ -21,6 +21,9 @@ namespace SugarAdventure
         private Texture2D hud_keyBlue_Disabled;
         private Texture2D hud_keyGreen_Disabled;
         private Texture2D hud_keyRed_Disabled;
+        private Texture2D hud_keyBlue_Enabled;
+        private Texture2D hud_keyGreen_Enabled;
+        private Texture2D hud_keyRed_Enabled;
         private Texture2D hud_heartHalf;
         private Texture2D hud_heartEmpty;
         private Texture2D heartHalf;
@@ -66,6 +69,10 @@ namespace SugarAdventure
             hud_keyBlue_Disabled = SugarGame.contentManager.Load<Texture2D>("hud_keyBlue_Disabled");
             hud_keyGreen_Disabled = SugarGame.contentManager.Load<Texture2D>("hud_keyGreen_Disabled");
             hud_keyRed_Disabled = SugarGame.contentManager.Load<Texture2D>("hud_keyRed_Disabled");
+
+            hud_keyBlue_Enabled = SugarGame.contentManager.Load<Texture2D>("hud_keyBlue");
+            hud_keyGreen_Enabled = SugarGame.contentManager.Load<Texture2D>("hud_keyGreen");
+            hud_keyRed_Enabled = SugarGame.contentManager.Load<Texture2D>("hud_keyRed");
 
 
             base.LoadContent(pGraphicsDevice);
@@ -114,10 +121,19 @@ namespace SugarAdventure
                 int digit = (int)char.GetNumericValue(amountString[i]);
                 spriteBatch.Draw(hud_numbers[digit], drawPos + new Vector2(hud_coins.Width + hud_x.Width + hud_numbers[0].Width*i, hud_coins.Height / 2 - hud_numbers[0].Height / 2), Color.White);
             }
+        }
 
+        private void DrawKeys(SpriteBatch pSpriteBatch, Vector2 position)
+        {
+            if (player.HasItem("key_green"))
+                pSpriteBatch.Draw(hud_keyRed_Disabled, new Rectangle((int)position.X, (int)position.Y, 32, 32), Color.White);
 
-            //Console.WriteLine(amountString.Length);
-            
+            if (player.HasItem("key_green"))
+                pSpriteBatch.Draw(hud_keyGreen_Enabled, new Rectangle((int)position.X + 30, (int)position.Y, 32, 32), Color.White);
+            else
+                pSpriteBatch.Draw(hud_keyGreen_Disabled, new Rectangle((int)position.X + 30, (int)position.Y, 32, 32), Color.White);
+
+            pSpriteBatch.Draw(hud_keyBlue_Disabled, new Rectangle((int)position.X + 60, (int)position.Y, 32, 32), Color.White);
         }
 
         public override void Update(GameTime pGameTime)
@@ -196,14 +212,13 @@ namespace SugarAdventure
 
             DrawHearts(pSpriteBatch, Vector2.One, player.Health, player.MaxHealth);
             DrawCoins(pSpriteBatch, new Vector2(SugarGame.graphics.PreferredBackBufferWidth, 0), player.Money);
+            DrawKeys(pSpriteBatch, new Vector2(0, hud_heartFull.Height));
 
-            pSpriteBatch.Draw(hud_keyBlue_Disabled, new Rectangle(630, 2, 32, 32), Color.White);
-            pSpriteBatch.Draw(hud_keyGreen_Disabled, new Rectangle(600, 2, 32, 32), Color.White);
-            pSpriteBatch.Draw(hud_keyRed_Disabled, new Rectangle(570, 2, 32, 32), Color.White);
 
             pSpriteBatch.End();
 
 
         }
+
     }
 }
