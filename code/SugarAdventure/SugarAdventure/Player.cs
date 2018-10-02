@@ -19,6 +19,7 @@ namespace SugarAdventure
 
         private SoundEffect teleportEffect;
         private SoundEffect jumpEffect;
+        private SoundEffect hurtEffect;
         private HashSet<IPickupable> inventory;
         private Texture2D texture;
         private Vector2 originalPosition;
@@ -87,6 +88,7 @@ namespace SugarAdventure
             texture = standAnim.Texture;
             jumpEffect = SugarGame.contentManager.Load<SoundEffect>("jump");
             teleportEffect = SugarGame.contentManager.Load<SoundEffect>("teleport");
+            hurtEffect = SugarGame.contentManager.Load<SoundEffect>("hurt");
             hitbox = new Rectangle(position.ToPoint(), new Point(texture.Width, texture.Height));
         }
 
@@ -193,6 +195,7 @@ namespace SugarAdventure
         {
             if (damageCounter <= 0)
             {
+                hurtEffect.Play();
                 Health -= attackDamage;
                 if (Health <= 0)
                 {

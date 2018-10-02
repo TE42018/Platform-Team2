@@ -1,6 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Audio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +31,9 @@ namespace SugarAdventure
         private Texture2D hud_heartEmpty;
         private Texture2D heartHalf;
         private Texture2D[] hud_numbers;
+        private Texture2D paused;
+        private Song backgroundMusic;
+        private bool isPaused;
 
 
         public MainGameScreen()
@@ -44,13 +49,15 @@ namespace SugarAdventure
 
         public override void LoadContent(GraphicsDevice pGraphicsDevice)
         {
-            level = SugarGame.levelManager.LoadLevel(LevelNumber.level2);
+            level = SugarGame.levelManager.LoadLevel(LevelNumber.level1);
 
             Camera.SetBoundingLevel(level);
 
             player = new Player(level, 4);
             player.LoadContent();
             player.SetBoundingLevel(level);
+
+            paused = SugarGame.contentManager.Load<Texture2D>("pause");
 
             hud_heartFull = SugarGame.contentManager.Load<Texture2D>("hud_heartFull");
             hud_heartHalf = SugarGame.contentManager.Load<Texture2D>("hud_heartHalf");
@@ -72,6 +79,10 @@ namespace SugarAdventure
             hud_keyGreen_Enabled = SugarGame.contentManager.Load<Texture2D>("hud_keyGreen");
             hud_keyRed_Enabled = SugarGame.contentManager.Load<Texture2D>("hud_keyRed");
 
+            backgroundMusic = SugarGame.contentManager.Load<Song>("backMusic");
+            MediaPlayer.Play(backgroundMusic);
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.Volume = 0.15f;
 
             background = SugarGame.contentManager.Load<Texture2D>("bakgrund");
 
@@ -143,10 +154,24 @@ namespace SugarAdventure
 
         public override void Update(GameTime pGameTime)
         {
+
+            if (SugarGame.inputManager.IsKeyTriggered(Keys.Escape))
+            {
+                //SugarGame.Instance.Components.Add(new MenuComponent(SugarGame.Instance));
+                isPaused = !isPaused;
+
+            }
+            if (isPaused)
+            {
+                MediaPlayer.Volume = 0.05f;
+                return;
+            }
+            MediaPlayer.Volume = 0.15f;
+
             if (SugarGame.inputManager.IsKeyPressed(Keys.Escape))
             {
-                quit = true;
-                SugarGame.Instance.Components.Add(new MenuComponent(SugarGame.Instance));
+                //quit = true;
+                //SugarGame.Instance.Components.Add(new MenuComponent(SugarGame.Instance));
             }
             if (SugarGame.inputManager.IsPressed(Actions.Up))
             {
@@ -221,7 +246,23 @@ namespace SugarAdventure
             DrawKeys(pSpriteBatch, new Vector2(0, hud_heartFull.Height));
 
             pSpriteBatch.End();
-        }
 
+            pSpriteBatch.Begin(blendState: BlendState.AlphaBlend);
+
+            if (isPaused)
+            {
+                Texture2D solid = new Texture2D(SugarGame.graphics.GraphicsDevice, 1, 1);
+                Color[] colorData = { Color.White };
+                solid.SetData(colorData);
+                var x = pSpriteBatch.GraphicsDevice.Viewport.Width / 2 - paused.Width / 2;
+                pSpriteBatch.Draw(solid, new Rectangle(0, 0, SugarGame.graphics.PreferredBackBufferWidth, SugarGame.graphics.PreferredBackBufferHeight), Color.Black * 0.4f);
+                pSpriteBatch.Draw(paused, new Rectangle(x, 50, 180, 180), Color.White);
+
+            }
+
+
+
+            pSpriteBatch.End();
+        }
     }
 }
