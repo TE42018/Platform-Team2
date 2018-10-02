@@ -26,8 +26,9 @@ namespace SugarAdventure
         private Texture2D heartHalf;
         private Texture2D[] hud_numbers;
         private Texture2D paused;
+        private Texture2D pauseText;
         private bool isPaused;
-
+        private SpriteFont verdana36;
 
         public MainGameScreen()
         {
@@ -59,6 +60,7 @@ namespace SugarAdventure
             hud_heartEmpty = SugarGame.contentManager.Load<Texture2D>("hud_heartEmpty");
 
             paused = SugarGame.contentManager.Load<Texture2D>("pause");
+            pauseText = SugarGame.contentManager.Load<Texture2D>("pauseText");
 
             hud_coins = SugarGame.contentManager.Load<Texture2D>("hud_coins");
             hud_x = SugarGame.contentManager.Load<Texture2D>("hud_x");
@@ -135,7 +137,14 @@ namespace SugarAdventure
             }
             if (isPaused)
             {
+                if (SugarGame.inputManager.IsKeyPressed(Keys.Q))
+                {
+                    quit = true;
+                    SugarGame.Instance.Components.Add(new MenuComponent(SugarGame.Instance));
+                }
+
                 return;
+
             }
 
             if (SugarGame.inputManager.IsPressed(Actions.Up))
@@ -231,11 +240,11 @@ namespace SugarAdventure
                 var x = pSpriteBatch.GraphicsDevice.Viewport.Width / 2 - paused.Width / 2;
                 pSpriteBatch.Draw(solid, new Rectangle(0, 0, SugarGame.graphics.PreferredBackBufferWidth, SugarGame.graphics.PreferredBackBufferHeight), Color.Black * 0.4f);
                 pSpriteBatch.Draw(paused, new Rectangle(x, 50, 180, 180), Color.White);
+                pSpriteBatch.Draw(pauseText, new Rectangle(x, 110, 480, 480), Color.White);
+
+
 
             }
-
-
-
             pSpriteBatch.End();
 
 
