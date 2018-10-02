@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tileset name="items" tilewidth="70" tileheight="70" tilecount="54" columns="18">
- <image source="../../../../Downloads/Platformer_assets/Spritesheets/Entities/items.png" width="1260" height="210"/>
+ <image source="../../assets/Spritesheets/Entities/items.png" width="1260" height="210"/>
  <tile id="0">
   <properties>
    <property name="Collideable" type="bool" value="false"/>
