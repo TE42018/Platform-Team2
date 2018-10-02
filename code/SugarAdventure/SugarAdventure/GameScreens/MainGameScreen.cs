@@ -39,15 +39,12 @@ namespace SugarAdventure
 
         public override void Initialize()
         {
-
             base.Initialize();
         }
 
         public override void LoadContent(GraphicsDevice pGraphicsDevice)
         {
-            level = SugarGame.levelManager.LoadLevel(LevelNumber.level3);
-
-            //SugarGame.entityManager.LoadContent();
+            level = SugarGame.levelManager.LoadLevel(LevelNumber.level2);
 
             Camera.SetBoundingLevel(level);
 
@@ -223,10 +220,7 @@ namespace SugarAdventure
             DrawCoins(pSpriteBatch, new Vector2(SugarGame.graphics.PreferredBackBufferWidth, 0), player.Money);
             DrawKeys(pSpriteBatch, new Vector2(0, hud_heartFull.Height));
 
-
             pSpriteBatch.End();
-
-
         }
 
     }

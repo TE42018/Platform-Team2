@@ -50,7 +50,6 @@ namespace SugarAdventure
             gsm = new GameScreenManager();
 
             gsm.Push(new StartupGameScreen());
-            //gsm.Push(new MainGameScreen());
 
             Content.RootDirectory = "Content";
             contentManager = Content;

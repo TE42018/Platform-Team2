@@ -64,6 +64,7 @@ namespace SugarAdventure
             //ViewportHeight = (int)(_viewportHeight / ZoomFactor);
             ViewportWidth = (int)Math.Ceiling(_viewportWidth / ZoomFactor);
             ViewportHeight = (int)Math.Ceiling(_viewportHeight / ZoomFactor);
+            bounds = new Rectangle(Point.Zero, new Point(boundWidth - ViewportWidth, boundHeight - ViewportHeight));
 
             //mScaleX = (float)SugarGame.graphics.PreferredBackBufferWidth / originalWidth;
             //mScaleY = (float)SugarGame.graphics.PreferredBackBufferHeight / originalHeight;

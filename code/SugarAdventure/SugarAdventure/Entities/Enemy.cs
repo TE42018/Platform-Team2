@@ -85,6 +85,8 @@ namespace SugarAdventure
             Position = new Vector2(Position.X + Velocity.X * (float)gameTime.ElapsedGameTime.TotalSeconds, Position.Y);
             Hitbox = new Rectangle(Position.ToPoint(), Size);
 
+            //Find start and end of X and Y
+
             for (int y = 0; y < tilesToCheck.GetLength(1); y++)
             {
                 for (int x = 0; x < tilesToCheck.GetLength(0); x++)
