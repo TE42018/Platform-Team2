@@ -228,8 +228,6 @@ namespace SugarAdventure
             //bakgrundsbild
             _spriteBatch.Draw(_backgroundImage, GraphicsDevice.Viewport.Bounds, Color.White);
 
-            //_spriteBatch.Draw(_volumeGraph, GraphicsDevice.Viewport.Bounds, Color.White);
-
             // ... Komplettering #5
             foreach (var choice in _activeChoices)
             {

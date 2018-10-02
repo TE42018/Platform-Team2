@@ -25,6 +25,8 @@ namespace SugarAdventure
         private Texture2D hud_heartEmpty;
         private Texture2D heartHalf;
         private Texture2D[] hud_numbers;
+        private Texture2D paused;
+        private bool isPaused;
 
 
         public MainGameScreen()
@@ -38,6 +40,7 @@ namespace SugarAdventure
             
             base.Initialize();
         }
+
 
         public override void LoadContent(GraphicsDevice pGraphicsDevice)
         {
@@ -54,6 +57,8 @@ namespace SugarAdventure
             hud_heartFull = SugarGame.contentManager.Load<Texture2D>("hud_heartFull");
             hud_heartHalf = SugarGame.contentManager.Load<Texture2D>("hud_heartHalf");
             hud_heartEmpty = SugarGame.contentManager.Load<Texture2D>("hud_heartEmpty");
+
+            paused = SugarGame.contentManager.Load<Texture2D>("pause");
 
             hud_coins = SugarGame.contentManager.Load<Texture2D>("hud_coins");
             hud_x = SugarGame.contentManager.Load<Texture2D>("hud_x");
@@ -122,11 +127,17 @@ namespace SugarAdventure
 
         public override void Update(GameTime pGameTime)
         {
-            if (SugarGame.inputManager.IsKeyPressed(Keys.Escape))
+            if (SugarGame.inputManager.IsKeyTriggered(Keys.Escape))
             {
-                quit = true;
-                SugarGame.Instance.Components.Add(new MenuComponent(SugarGame.Instance));
+                //SugarGame.Instance.Components.Add(new MenuComponent(SugarGame.Instance));
+                isPaused = !isPaused;
+                
             }
+            if (isPaused)
+            {
+                return;
+            }
+
             if (SugarGame.inputManager.IsPressed(Actions.Up))
             {
                 player.ClimbUp();
@@ -189,20 +200,41 @@ namespace SugarAdventure
                 player.Draw(pSpriteBatch);
                 SugarGame.entityManager.Draw(pSpriteBatch);
             }
+
             base.Draw(pSpriteBatch);
+            
             pSpriteBatch.End();
+
+
 
             pSpriteBatch.Begin();
 
             DrawHearts(pSpriteBatch, Vector2.One, 7, 10);
-            DrawCoins(pSpriteBatch, new Vector2(SugarGame.graphics.PreferredBackBufferWidth, 0), 1234567890);
+            DrawCoins(pSpriteBatch, new Vector2(SugarGame.graphics.PreferredBackBufferWidth, 0), 123);
 
             //pSpriteBatch.Draw(hud_coins, new Rectangle(690, 2, 32, 32), Color.White);
             //pSpriteBatch.Draw(hud_x, new Rectangle(720, 2, 32, 32), Color.White);
 
-            pSpriteBatch.Draw(hud_keyBlue_Disabled, new Rectangle(630, 2, 32, 32), Color.White);
-            pSpriteBatch.Draw(hud_keyGreen_Disabled, new Rectangle(600, 2, 32, 32), Color.White);
-            pSpriteBatch.Draw(hud_keyRed_Disabled, new Rectangle(570, 2, 32, 32), Color.White);
+            //pSpriteBatch.Draw(hud_keyBlue_Disabled, new Rectangle(630, 2, 32, 32), Color.White);
+            //pSpriteBatch.Draw(hud_keyGreen_Disabled, new Rectangle(600, 2, 32, 32), Color.White);
+            //pSpriteBatch.Draw(hud_keyRed_Disabled, new Rectangle(570, 2, 32, 32), Color.White);
+
+            pSpriteBatch.End();
+
+            pSpriteBatch.Begin(blendState: BlendState.AlphaBlend);
+
+            if (isPaused)
+            {
+                Texture2D solid = new Texture2D(SugarGame.graphics.GraphicsDevice, 1, 1);
+                Color[] colorData = { Color.White };
+                solid.SetData(colorData);
+                var x = pSpriteBatch.GraphicsDevice.Viewport.Width / 2 - paused.Width / 2;
+                pSpriteBatch.Draw(solid, new Rectangle(0, 0, SugarGame.graphics.PreferredBackBufferWidth, SugarGame.graphics.PreferredBackBufferHeight), Color.Black * 0.4f);
+                pSpriteBatch.Draw(paused, new Rectangle(x, 50, 180, 180), Color.White);
+
+            }
+
+
 
             pSpriteBatch.End();
 

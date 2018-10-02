@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
+using MonoGame.Meny;
 
 namespace SugarAdventure
 {
@@ -82,7 +83,6 @@ namespace SugarAdventure
                 //instance.Exit();
 
             gsm.Update(gameTime);
-
             
 
             
