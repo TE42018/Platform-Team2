@@ -49,7 +49,7 @@ namespace SugarAdventure
 
         public override void LoadContent(GraphicsDevice pGraphicsDevice)
         {
-            level = SugarGame.levelManager.LoadLevel(LevelNumber.level1);
+            level = SugarGame.levelManager.LoadLevel(LevelNumber.level3);
 
             Camera.SetBoundingLevel(level);
 
