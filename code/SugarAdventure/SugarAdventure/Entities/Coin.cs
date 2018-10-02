@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 
 namespace SugarAdventure
 {
@@ -14,6 +15,7 @@ namespace SugarAdventure
         public Vector2 Position { get; set; }
         public Rectangle Hitbox { get; set; }
         public Texture2D Texture { get; set; }
+        public SoundEffect Sound { get; set; }
 
         public int Value { get; set; }
         public Point Size { get; set; }
@@ -23,20 +25,21 @@ namespace SugarAdventure
             Type = "coin_" + _type;
             Position = _pos;
             Size = new Point(47, 47);
+            Sound = SugarGame.contentManager.Load<SoundEffect>("coin");
 
             switch (Type.ToLower())
             {
                 case "coin_bronze":
                     Value = 1;
-                    Texture = SugarGame.entityManager.Textures[(int)EntityTexture.Coin_bronze];
+                    Texture = SugarGame.entityManager.Textures[(int)EntityTextures.Coin_bronze];
                     break;
                 case "coin_silver":
                     Value = 3;
-                    Texture = SugarGame.entityManager.Textures[(int)EntityTexture.Coin_silver];
+                    Texture = SugarGame.entityManager.Textures[(int)EntityTextures.Coin_silver];
                     break;
                 case "coin_gold":
                     Value = 5;
-                    Texture = SugarGame.entityManager.Textures[(int)EntityTexture.Coin_gold];
+                    Texture = SugarGame.entityManager.Textures[(int)EntityTextures.Coin_gold];
                     break;
             }
 

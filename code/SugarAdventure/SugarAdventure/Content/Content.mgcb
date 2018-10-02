@@ -241,7 +241,7 @@
 /processorParam:TextureFormat=Color
 /build:Platformer_assets/Aliens/alienPink.png
 
-#begin hud_heartFull.png
+#begin alienPink_jump.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -252,18 +252,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:alienPink_jump.png
-
-#begin background.jpg
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:background.jpg
 
 #begin bakgrund.jpg
 /importer:TextureImporter
@@ -517,7 +505,7 @@
 /processorParam:TextureFormat=Color
 /build:hud_keyRed.png
 
-#begin Platformer_assets/Enemies/snailWalk1.png
+#begin hud_keyRed_disabled.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -595,7 +583,7 @@
 /processorParam:TextureFormat=Color
 /build:walkPink.png
 
-#begin Platformer_assets/Enemies/snailWalk1.png
+#begin background.jpg
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -606,3 +594,34 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:background.jpg
+
+#begin Platformer_assets/Enemies/snailWalk1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Platformer_assets/Enemies/snailWalk1.png
+
+#begin coin.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:coin.wav
+
+#begin pickup.ogg
+/importer:OggImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:pickup.ogg
+
+#begin teleport.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:teleport.wav
+

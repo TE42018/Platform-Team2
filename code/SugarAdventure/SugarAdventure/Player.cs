@@ -17,6 +17,7 @@ namespace SugarAdventure
         Animation jumpAnim;
         Animation climbAnim;
 
+        private SoundEffect teleportEffect;
         private SoundEffect jumpEffect;
         private HashSet<IPickupable> inventory;
         private Texture2D texture;
@@ -85,6 +86,7 @@ namespace SugarAdventure
             texture = SugarGame.contentManager.Load<Texture2D>(@".\Platformer_assets\Aliens\alienPink");
             texture = standAnim.Texture;
             jumpEffect = SugarGame.contentManager.Load<SoundEffect>("jump");
+            teleportEffect = SugarGame.contentManager.Load<SoundEffect>("teleport");
             hitbox = new Rectangle(position.ToPoint(), new Point(texture.Width, texture.Height));
         }
 
@@ -137,6 +139,7 @@ namespace SugarAdventure
         public void Pickup(IPickupable item)
         {
             inventory.Add(item);
+            item.Sound.Play();
             if(item is Coin)
             {
                 Money += (item as Coin).Value;
@@ -384,6 +387,8 @@ namespace SugarAdventure
                         }
                         if(tileType == "portal" && CurrentAction == Actions.Activate)
                         {
+                            //Play teleport sound
+                            teleportEffect.Play();
                             level = SugarGame.levelManager.LoadNextLevel();
                             SetBoundingLevel(level);
                             Camera.SetBoundingLevel(level);

@@ -32,14 +32,14 @@ namespace SugarAdventure
             switch (Type)
             {
                 case "enemy_slime":
-                    Texture = SugarGame.entityManager.Textures[(int)EntityTexture.Slime_walk1];
+                    Texture = SugarGame.entityManager.Textures[(int)EntityTextures.Slime_walk1];
                     Size = new Point(Texture.Width, Texture.Height);
                     Hitbox = new Rectangle(Position.ToPoint(), Size);
                     AttackDamage = 1;
                     WalkSpeed = 200;
                     break;
                 case "enemy_snail":
-                    Texture = SugarGame.entityManager.Textures[(int)EntityTexture.Snail_walk1];
+                    Texture = SugarGame.entityManager.Textures[(int)EntityTextures.Snail_walk1];
                     Size = new Point(Texture.Width, Texture.Height);
                     Hitbox = new Rectangle(Position.ToPoint(), Size);
                     AttackDamage = 1;
@@ -50,7 +50,7 @@ namespace SugarAdventure
 
         public void Update(GameTime gameTime, Level level)
         {
-
+            Level = level;
             Walk();
             CheckCollision(gameTime, level);
         }
@@ -72,11 +72,11 @@ namespace SugarAdventure
             Tile[,] tiles = level.GetLayer("Ground").GetTiles();
             CollideX(gameTime, tiles);
             CollideY(gameTime, tiles);
-            
+
             int boundWidth = level.GetLayer("Ground").LayerWidth;
             int boundHeight = level.GetLayer("Ground").LayerHeight;
 
-            if (Position.X + Size.X > boundWidth || Position.X < 0 )
+            if (Position.X + Size.X > boundWidth || Position.X < 0)
                 direction *= -1;
         }
 
@@ -85,11 +85,16 @@ namespace SugarAdventure
             Position = new Vector2(Position.X + Velocity.X * (float)gameTime.ElapsedGameTime.TotalSeconds, Position.Y);
             Hitbox = new Rectangle(Position.ToPoint(), Size);
 
-            //Find start and end of X and Y
+            int startX = (int)Math.Floor(Position.X / 70); startX = Math.Min(Math.Max(startX, 0), tilesToCheck.GetLength(0));
+            int startY = (int)Math.Floor(Position.Y / 70); startY = Math.Min(Math.Max(startY, 0), tilesToCheck.GetLength(1));
+            int endX = (int)Math.Floor((float)(Hitbox.Location.X + Hitbox.Size.X) / 70); endX = Math.Min(Math.Max(endX, 0), tilesToCheck.GetLength(0)-1);
+            int endY = (int)Math.Floor((float)(Hitbox.Location.Y + Hitbox.Size.Y) / 70); endY = Math.Min(Math.Max(endY, 0), tilesToCheck.GetLength(1)-1);
 
-            for (int y = 0; y < tilesToCheck.GetLength(1); y++)
+            //x = Math.Min(Math.Max(x, a), b);
+
+            for (int y = startY; y <= endY; y++)
             {
-                for (int x = 0; x < tilesToCheck.GetLength(0); x++)
+                for (int x = startX; x <= endX; x++)
                 {
                     Tile t = tilesToCheck[x, y];
                     if (t == null)
@@ -129,12 +134,18 @@ namespace SugarAdventure
 
         private void CollideY(GameTime gameTime, Tile[,] tilesToCheck)
         {
+
             Position = new Vector2(Position.X, Position.Y + Velocity.Y * (float)gameTime.ElapsedGameTime.TotalSeconds);
             Hitbox = new Rectangle(Position.ToPoint(), Size);
 
-            for (int y = 0; y < tilesToCheck.GetLength(1); y++)
+            int startX = (int)Math.Floor(Position.X / 70); startX = Math.Min(Math.Max(startX, 0), tilesToCheck.GetLength(0));
+            int startY = (int)Math.Floor(Position.Y / 70); startY = Math.Min(Math.Max(startY, 0), tilesToCheck.GetLength(1));
+            int endX = (int)Math.Floor((float)(Hitbox.Location.X + Hitbox.Size.X) / 70); endX = Math.Min(Math.Max(endX, 0), tilesToCheck.GetLength(0)-1);
+            int endY = (int)Math.Floor((float)(Hitbox.Location.Y + Hitbox.Size.Y) / 70); endY = Math.Min(Math.Max(endY, 0), tilesToCheck.GetLength(1)-1);
+
+            for (int y = startY; y <= endY; y++)
             {
-                for (int x = 0; x < tilesToCheck.GetLength(0); x++)
+                for (int x = startX; x <= endX; x++)
                 {
                     Tile t = tilesToCheck[x, y];
                     if (t == null || t.Hitbox == null)
@@ -164,8 +175,8 @@ namespace SugarAdventure
                             }
 
                         }
-                        else if(tileType == "ladder")
-                        { 
+                        else if (tileType == "ladder")
+                        {
                             direction *= -1;
                         }
                     }
@@ -177,7 +188,7 @@ namespace SugarAdventure
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if(Texture != null)
+            if (Texture != null)
                 spriteBatch.Draw(texture: Texture, position: Position, color: Color.White, effects: direction > 0 ? SpriteEffects.FlipHorizontally : SpriteEffects.None);
         }
     }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Audio;
 
 namespace SugarAdventure
 {
@@ -15,17 +16,19 @@ namespace SugarAdventure
         public Texture2D Texture { get; set; }
         public Rectangle Hitbox { get; set; }
         public Point Size { get; set; }
+        public SoundEffect Sound { get; set; }
 
         public Key(Vector2 _pos, string _type)
         {
             Position = _pos;
             Type = "key_" + _type;
             Size = new Point(44, 40);
+            Sound = SugarGame.contentManager.Load<SoundEffect>("pickup");
 
             switch (Type)
             {
                 case "key_green":
-                    Texture = SugarGame.entityManager.Textures[(int)EntityTexture.Key_green];
+                    Texture = SugarGame.entityManager.Textures[(int)EntityTextures.Key_green];
                     break;
             }
 

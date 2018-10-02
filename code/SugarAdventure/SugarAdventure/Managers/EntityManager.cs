@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SugarAdventure
 {
-    public enum EntityTexture
+    public enum EntityTextures
     {
         Coin_bronze = 0,
         Coin_silver = 1,
@@ -18,6 +19,14 @@ namespace SugarAdventure
         Slime_walk1 = 4,
         Snail_walk1 = 5,
     }
+
+    public enum EntitySounds
+    {
+        Coin = 0,
+        Slime = 3,
+        Key = 1,
+    }
+
     public class EntityManager
     {
         private List<Texture2D> textures;
@@ -28,7 +37,15 @@ namespace SugarAdventure
                 return textures;
             }
         }
-        
+        private List<SoundEffect> sounds;
+        public List<SoundEffect> Sounds
+        {
+            get
+            {
+                return sounds;
+            }
+        }
+
         private List<IEntity> entities;
         public List<IEntity> Entities
         {
@@ -42,7 +59,8 @@ namespace SugarAdventure
         {
             entities = new List<IEntity>();
             textures = new List<Texture2D>();
-            
+            sounds = new List<SoundEffect>();
+
         }
 
         public void LoadContent()
@@ -53,6 +71,9 @@ namespace SugarAdventure
             textures.Add(SugarGame.contentManager.Load<Texture2D>(@".\Platformer_assets\Items\keyGreen"));
             textures.Add(SugarGame.contentManager.Load<Texture2D>(@".\Platformer_assets\Enemies\slimeWalk1"));
             textures.Add(SugarGame.contentManager.Load<Texture2D>(@".\Platformer_assets\Enemies\snailWalk1"));
+
+            sounds.Add(SugarGame.contentManager.Load<SoundEffect>("coin"));
+            sounds.Add(SugarGame.contentManager.Load<SoundEffect>("pickup"));
         }
 
 
@@ -82,16 +103,18 @@ namespace SugarAdventure
         {
             for (int i = entities.Count; i > 0; i--)
             {
+                IEntity e = entities[i - 1];
 
-                if (entities[i - 1] is IPickupable item)
+                if (e is IPickupable item)
                 {
                     if (item.Hitbox.Intersects(player.Hitbox))
                     {
+                        
                         player.Pickup(item);
                         entities.Remove(item as IEntity);
                     }
                 }
-                else if(entities[i - 1] is IEnemy enemy)
+                else if(e is IEnemy enemy)
                 {
                     enemy.Update(gameTime, player.Level);
                     if (enemy.Hitbox.Intersects(player.Hitbox))
@@ -99,8 +122,6 @@ namespace SugarAdventure
                         player.Damage(enemy.AttackDamage);
                     }
                 }
-
-
             }
         }
 
